@@ -1,6 +1,6 @@
 //This file contains locators for the DashBoard Page and Login Page
 
-export const landingPage= {
+export const landingPage = {
     loginPage: {
         
         //Login Page Fields

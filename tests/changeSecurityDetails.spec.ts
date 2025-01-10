@@ -21,14 +21,16 @@ test.beforeEach(async ({ page }) => {
   });
 
   test.only('Reset User Password from Profile', async ({ page }) => {
+    
+    await page.locator(SecurityPage.securityTab).click();
 
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.valid.currentPassword);
 
     await page.locator(SecurityPage.newPassword).fill(updatePassword.valid.newPassword);
     await page.locator(SecurityPage.confirmPassword).fill(updatePassword.valid.confirmPassword);
 
-    await page.locator(SecurityPage.securitySaveButton).click();
-    await page.getByRole('button', {name: 'Save' })
+    // await page.locator(SecurityPage.securitySaveButton).click();
+    // await page.getByRole('button', {name: 'Save' }).click();
   
   });
 
@@ -40,7 +42,7 @@ test.beforeEach(async ({ page }) => {
     await page.locator(SecurityPage.confirmPassword).fill(updatePassword.weakPassword.confirmPassword);
 
     await page.locator(SecurityPage.securitySaveButton).click();
-    await page.getByRole('button', {name: 'Save' })
+    await page.getByRole('button', {name: 'Save' }).click();
 
     const newPasswordErrorMessage = page.locator(SecurityPage.newPasswordError);
     await expect(newPasswordErrorMessage).toHaveText('Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character.');
@@ -54,7 +56,7 @@ test.beforeEach(async ({ page }) => {
     await expect(newPasswordErrorMessage).toBeHidden();
 
     await page.locator(SecurityPage.securitySaveButton).click();
-    await page.getByRole('button', {name: 'Save' })
+    await page.getByRole('button', {name: 'Save' }).click();
 
     const confirmationMessage = page.locator(SecurityPage.successMessage);
     await expect(confirmationMessage).toBeVisible();
@@ -74,7 +76,7 @@ test.beforeEach(async ({ page }) => {
     await page.locator(SecurityPage.confirmPassword).fill(updatePassword.noChangesPassword.confirmPassword);
 
     await page.locator(SecurityPage.securitySaveButton).click();
-    await page.getByRole('button', {name: 'Save' })
+    await page.getByRole('button', {name: 'Save' }).click();
 
     const newPasswordErrorMessage = page.locator(SecurityPage.newPasswordError);
     await expect(newPasswordErrorMessage).toHaveText('New Password can not be the same as current');
