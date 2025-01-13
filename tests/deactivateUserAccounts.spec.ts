@@ -20,10 +20,22 @@ test.describe('User management', () => {
     await checkBox.click();
     
 
-    await page.locator(userManagement.bulkAction);
+   //await page.click('.t-dropdown-list');
+
+    /*
     const bulkActionDrop = await page.locator(userManagement.bulkAction);
-    await expect(bulkActionDrop).toBeVisible();
-    await bulkActionDrop.click();
+    //await expect(bulkActionDrop).toHaveText('Bulk Action');
+    await bulkActionDrop.click();*/
+
+    const dropdownInput = page.locator('input[placeholder="Bulk Action"]');
+    //await expect(dropdownInput).toHaveValue('Bulk action text');
+    await dropdownInput.waitFor({ state: 'visible' });
+
+  
+    await page.locator(userManagement.bulkAction).click();
+    const bulkActionDrop = page.locator(userManagement.bulkAction).nth(4);
+    await bulkActionDrop.waitFor({ state: 'visible' });
+    await bulkActionDrop.selectOption({ value: 'Deactivate' });
 
     /*await page.locator(userManagement.deactivateButton);
     const deactivateBtn = await page.locator(userManagement.deactivateButton);

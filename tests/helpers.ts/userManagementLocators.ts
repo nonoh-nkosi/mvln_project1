@@ -6,14 +6,15 @@ export const userManagement = {
 
     //Buttons for creating new user
     addUserButton: '[id="openModalBtn"]',
-    submitBtn:'button[text()="Submit"]',
+    submitBtn:'button:has-text("Submit")',
     closeButton: 'span[aria-hidden="true"]',
-    signOut: 'text=Sign Out',
+    signOut: 'span:has-text("Sign Out")',
 
     //Buttons for editing user
     editButton: 'Edit',
-    saveButton: 'button:has-text("Save")',
+    saveButton: 'button.btn.btn-secondary.userEditField.editConfirmation',
     confirmButton: 'button.editConfirmation',
+    closeBtn: 'button.btn.btn-secondary',
 
     //Buttons Deactivating user
     deactivateButton: 'li#deactivateButton.t-dropdown-item',
@@ -24,7 +25,7 @@ export const userManagement = {
 
     //Fields for New user
     nameField: '[id="name"]',
-    sunameField: '[id="surname"]',
+    surnameField: '[id="surname"]',
     emailField: '[id="email"]',
     phoneField: '[id="phone"]',
     departmentField: '[id="department"]',
@@ -39,10 +40,11 @@ export const userManagement = {
     mainPageRole: '[id="optionRoleSelect646"]',
     clickToView: 'span.t-select-btn',
     clickToViewChild: '[id="646"]',
-    bulkAction: 'input[placeholder="Bulk Action"]',
+    bulkAction: 'span.t-select-btn',
 
     //New user messages
     errorMessage: 'Invalid email address!',
+    userExist: '//span[@class="error-message"]',
 
     //Edit user messages
     confirmMessage: 'h5:has-text("Please Confirm Changes:")',
