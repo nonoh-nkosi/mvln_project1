@@ -4,6 +4,9 @@ export const userManagement = {
 
     heading: 'User Account Management',
 
+    //Menu
+    menu: '[id="menuText"]',
+
     //Buttons for creating new user
     addUserButton: '[id="openModalBtn"]',
     submitBtn:'button:has-text("Submit")',
@@ -56,8 +59,9 @@ export const userManagement = {
     
     //Links
     userElement: '#fullNameTable_647',
-    userManagementLink: 'text=User Management',
+    userManagement: 'text=User Management',
     inactive: 'span#statusContainer_646',
+    report: 'a[href="/Reports/reports.php"]',
     
     //Headings
     userInformation: 'User Information',

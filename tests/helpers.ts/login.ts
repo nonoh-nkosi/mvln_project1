@@ -9,7 +9,6 @@ export async function login(page: Page): Promise<void> {
     await page.fill(landingPage.loginPage.emailField, email);
     await page.fill(landingPage.loginPage.passwordField, password);
     await page.click(landingPage.loginPage.loginButton);
-    await page.goto(config.urls.userManagement);
 }
 
   
