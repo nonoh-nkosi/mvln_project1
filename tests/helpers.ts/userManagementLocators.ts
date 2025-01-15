@@ -2,49 +2,66 @@
 
 export const userManagement = {
 
-    heading: 'User Account Management',
+      //Headings
+      userInformation: 'User Information',
+       heading: 'User Account Management',
     
     //Buttons
     addUserButton: '[id="openModalBtn"]',
-            submitBtn:'button[text()="Submit"]',
-            closeButton: 'span[aria-hidden="true"]',
+     submitBtn:'button[text()="Submit"]',
+     closeButton: 'span[aria-hidden="true"]',
     
-            //Edit user buttons
-            editButton: 'Edit',
-            saveButton: 'button:has-text("Save")',
-            confirmButton: 'button.editConfirmation',
-    
-            //Fields for New user
-            nameField: '[id="name"]',
-            sunameField: '[id="surname"]',
-            emailField: '[id="email"]',
-            phoneField: '[id="phone"]',
-            departmentField: '[id="department"]',
-            editEmail: '[id="email_647"]',
-            editDepartment: '[id="department_647"]',
-            
-    
-            //Fields for Editing
-            name: '[id="name_647"]',
-    
-    
-            role:  '[id="role"]',
-    
-            //New user messages
-            errorMessage: 'Invalid email address!',
-    
-            //Edit user messages
-            confirmMessage: 'h5:has-text("Please Confirm Changes:")',
-            editErrorMessage: '.errorDiv',
-            successMessage: 'text=User information updated successfully',
-            
-            //Links
-            // userElement: 'span:has-text("will parker")',
-            // userElement: 'Will parker',
-            userElement: '#fullNameTable_647',
+     editButton: 'Edit',
+     saveButton: 'button:has-text("Save")',
+    confirmButton: 'button.editConfirmation',
 
-            //Headings
-            userInformation: 'User Information',
+       //singleAccount Role Buttons
+       checkBox1: 'customCheckbox1',
+       checkBox2: 'styledCheckBox',
+
+       bulkAction: '.t-select-btn',
+
+       updateUserRole1: '[id="newRoleButton"]',
+       //or
+       updateUserRole2: 'Update User Roles',
+
+       bulkActionSelect: '[id="BulkOptionRoleSelect"]',
+
+       bulkConfirm1: 'Confirm',
+       //or
+       bulkConfirm2: 'bulkRoleSave',
+
+       userSelectRole: '[id="optionRoleSelect648"]',
+       //Buttons
+       confirmRole: '[id="confirmRoleBtn"]',
+
+
+    
+    //Fields 
+    nameField: '[id="name"]',
+    sunameField: '[id="surname"]',
+    emailField: '[id="email"]',
+    phoneField: '[id="phone"]',
+    departmentField: '[id="department"]',
+    role:  '[id="role"]',
+
+    //Edit User Fields
+    editEmail: '[id="email_647"]',
+    editDepartment: '[id="department_647"]',
+    name: '[id="name_647"]',
+    
+    //Error messages
+    errorMessage: 'Invalid email address!',
+    editErrorMessage: '.errorDiv',
+    
+    //Success Messages
+    confirmMessage: 'h5:has-text("Please Confirm Changes:")',
+    successMessage: 'text=User information updated successfully',
+    
+    //Links
+    // userElement: 'span:has-text("will parker")',
+    // userElement: 'Will parker',
+    userElement: '#fullNameTable_647',
 
 
 }

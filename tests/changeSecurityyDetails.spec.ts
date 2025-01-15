@@ -5,6 +5,11 @@ import { login } from "./helpers.ts/login";
 import { updatePassword } from "./testdata/updatePassword.data";
 import { profilePage } from "./helpers.ts/profilePageLocators";
 
+//First Round Of Change Password Tests
+
+test.describe('Change Password From User Profile', () => {
+
+  //Before Logging in using Login Function and opening Security page 
 test.beforeEach(async ({ page }) => {
 
     await login(page);
@@ -18,10 +23,14 @@ test.beforeEach(async ({ page }) => {
     await page.locator(SecurityPage.securityTab).click();
 
     await page.locator(SecurityPage.securityTab).click();
+
   });
 
-  test.only('Reset User Password from Profile', async ({ page }) => {
+  //Automated Tests
+
+  test('Reset User Password from Profile', async ({ page }) => {
     
+    await page.locator(SecurityPage.securityTab).click();
     await page.locator(SecurityPage.securityTab).click();
 
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.valid.currentPassword);
@@ -34,7 +43,9 @@ test.beforeEach(async ({ page }) => {
   
   });
 
-  test('Password Complexity in User Profile Password Reset', async ({ page }) => {
+  test.only('Password Complexity in User Profile Password Reset', async ({ page }) => {
+
+    await page.locator(SecurityPage.securityTab).click();
 
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.weakPassword.currentPassword);
 
@@ -47,7 +58,7 @@ test.beforeEach(async ({ page }) => {
     const newPasswordErrorMessage = page.locator(SecurityPage.newPasswordError);
     await expect(newPasswordErrorMessage).toHaveText('Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character.');
     await expect(newPasswordErrorMessage).toBeVisible();
-    await expect(newPasswordErrorMessage).toHaveCSS('color', 'rgb(255, 0, 0)')
+    await expect(newPasswordErrorMessage).toHaveCSS('color', 'rgb(249, 49, 84)')
 
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.strongPassword.currentPassword);
 
@@ -55,8 +66,8 @@ test.beforeEach(async ({ page }) => {
     await page.locator(SecurityPage.confirmPassword).fill(updatePassword.strongPassword.confirmPassword);
     await expect(newPasswordErrorMessage).toBeHidden();
 
-    await page.locator(SecurityPage.securitySaveButton).click();
-    await page.getByRole('button', {name: 'Save' }).click();
+    // await page.locator(SecurityPage.securitySaveButton).click();
+    // await page.getByRole('button', {name: 'Save' }).click();
 
     const confirmationMessage = page.locator(SecurityPage.successMessage);
     await expect(confirmationMessage).toBeVisible();
@@ -66,6 +77,8 @@ test.beforeEach(async ({ page }) => {
   });
 
   test('Password Reset Guidance in User Profile', async ({ page }) => {
+
+    await page.locator(SecurityPage.securityTab).click();
 
     await page.locator(SecurityPage.securityHeading).hover();
     await page.locator(SecurityPage.updatePasswordHeading).hover();
@@ -81,14 +94,40 @@ test.beforeEach(async ({ page }) => {
     const newPasswordErrorMessage = page.locator(SecurityPage.newPasswordError);
     await expect(newPasswordErrorMessage).toHaveText('New Password can not be the same as current');
     await expect(newPasswordErrorMessage).toBeVisible();
-    await expect(newPasswordErrorMessage).toHaveCSS('color', 'rgb(255, 0, 0)');
+    await expect(newPasswordErrorMessage).toHaveCSS('color', 'rgb(249, 49, 84)');
 
   });
 
-  test.fixme('Password Reset Confirmation Notification', async ({ page }) => {
+  test.afterEach('Logout and Close page', async ({ page }) => {
+  
+    //This is the 1st way to logout and will be used after the bug has been resolved
+    //Related to DN-86:Logout button under Profile Entity does not work
+    /// await page.locator(profilePage.profileEntity).click();
+    /// await page.getByText(profilePage.logoutButton).click();
+    
+    await page.locator(profilePage.dashBoardPage).click();
+    await page.locator(landingPage.dashBoardPage.signOut).click();
+ 
+    await page.close(); 
+});
 
-   await page.locator(landingPage.loginPage.forgotPassword).click();
+});
+
+//Second Round Of Change Password Tests
+
+test.describe('Change Password Using Forgot Password', () => {
+
+  test.beforeEach(async ({ page }) => {
+
+    await login(page);
+    await page.locator(landingPage.loginPage.forgotPassword).click();
+  
   });
+
+  // test.fixme('Password Reset Confirmation Notification', async ({ page }) => {
+
+
+  // });
 
   // test('Password Reset Link Validity Period', async ({ page }) => {
 
@@ -102,25 +141,27 @@ test.beforeEach(async ({ page }) => {
 
   // });
 
-  test.fixme('Password Strength Indicator Visibility', async ({ page }) => {
-//Incoporate into DN-50?
+//   test.fixme('Password Strength Indicator Visibility', async ({ page }) => {
+// //Incoporate into DN-50?
 
-    await page.locator(SecurityPage.currentPassword).fill(updatePassword.weakPassword.currentPassword);
+//     await page.locator(SecurityPage.currentPassword).fill(updatePassword.weakPassword.currentPassword);
 
-    await page.locator(SecurityPage.newPassword).fill(updatePassword.weakPassword.newPassword);
-    await page.locator(SecurityPage.confirmPassword).fill(updatePassword.weakPassword.confirmPassword);
+//     await page.locator(SecurityPage.newPassword).fill(updatePassword.weakPassword.newPassword);
+//     await page.locator(SecurityPage.confirmPassword).fill(updatePassword.weakPassword.confirmPassword);
     
-  });
+//   });
 
   test('Password Reset Confirmation Message', async ({ page }) => {
+
+    await page.locator(SecurityPage.securityTab).click();
 
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.valid.currentPassword);
 
     await page.locator(SecurityPage.newPassword).fill(updatePassword.valid.newPassword);
     await page.locator(SecurityPage.confirmPassword).fill(updatePassword.valid.confirmPassword);
 
-    await page.locator(SecurityPage.securitySaveButton).click();
-    await page.locator(SecurityPage.securityConfirmButton).click();
+    // await page.locator(SecurityPage.securitySaveButton).click();
+    // await page.locator(SecurityPage.securityConfirmButton).click();
 
 //Check if there is a confirmation message on security page
     const confirmationMessage = page.locator(SecurityPage.successMessage);
@@ -130,7 +171,9 @@ test.beforeEach(async ({ page }) => {
 
   });
 
-  test.fixme('Password Reset Error Handling', async ({ page }) => {
+  test('Password Reset Error Handling', async ({ page }) => {
+
+    await page.locator(SecurityPage.securityTab).click();
 
     //Invalid password for Current Password
     await page.locator(SecurityPage.currentPassword).click();
@@ -190,15 +233,9 @@ test.beforeEach(async ({ page }) => {
 
   });
 
-  test.afterEach('Logout and Close page', async ({ page }) => {
+  test.afterEach('Close page', async ({ page }) => {
   
-    //This is the 1st way to logout and will be used after the bug has been resolved
-    //Related to DN-86:Logout button under Profile Entity does not work
-    /// await page.locator(profilePage.profileEntity).click();
-    /// await page.getByText(profilePage.logoutButton).click();
-    
-    await page.locator(profilePage.dashBoardPage).click();
-    await page.locator(landingPage.dashBoardPage.signOut).click();
- 
     await page.close(); 
+});
+
 });

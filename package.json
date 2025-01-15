@@ -1,0 +1,13 @@
+{
+  "name": "docunation-web-automation",
+  "version": "1.0.0",
+  "description": "automated tests to test  web ui",
+  "main": "index.ts",
+  "author": "Ora",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.8.5"
+  },
+  "scripts": {}
+}
