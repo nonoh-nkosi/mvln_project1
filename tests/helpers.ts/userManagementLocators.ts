@@ -5,36 +5,31 @@ export const userManagement = {
       //Headings
       userInformation: 'User Information',
       userPasswordReset: 'User Password Reset',
+       heading: 'User Account Management',
+    
+    //Buttons
+    addUserButton: '[id="openModalBtn"]',
+     submitBtn:'button[text()="Submit"]',
+     closeButton: 'span[aria-hidden="true"]',
+    
+     editButton: 'Edit',
+     saveButton: 'button:has-text("Save")',
+    confirmButton: 'button.editConfirmation',
+    signOut: 'Sign Out',
 
        //singleAccount Role Buttons
-       fillCheckbox: 'label[for="customCheckbox1"].styledCheckbox',
+       checkBox1: 'customCheckbox1',
+       checkBox2: 'styledCheckBox',
 
-       bulkDropdown: 'ul.t-dropdown-list',
-      
-       updateUserRole: 'Update User Roles',
+       updateUserRole1: '[id="newRoleButton"]',
+       //or
+       updateUserRole2: 'Update User Roles',
 
-   heading: 'User Account Management',
+       bulkActionSelect: '[id="BulkOptionRoleSelect"]',
 
-   //Menu
-   menu: '[id="menuText"]',
-
-   //Buttons for creating new user
-   addUserButton: '[id="openModalBtn"]',
-   submitBtn:'button:has-text("Submit")',
-   closeButton: 'span[aria-hidden="true"]',
-   signOut: 'span:has-text("Sign Out")',
-
-   //Buttons for editing user
-   editButton: 'Edit',
-   saveButton: 'button.btn.btn-secondary.userEditField.editConfirmation',
-   confirmButton: 'button.editConfirmation',
-   closeBtn: 'button.btn.btn-secondary',
-
-   //Buttons Deactivating user
-   deactivateButton: 'li#deactivateButton.t-dropdown-item',
-   confirmDeactivationBtn: 'button.btn.btn-secondary',
-
-       bulkConfirm: '[id="bulkRoleSave"]',
+       bulkConfirm1: 'Confirm',
+       //or
+       bulkConfirm2: 'bulkRoleSave',
 
        userSelectRole: '[id="optionRoleSelect648"]',
        //Buttons
@@ -73,7 +68,8 @@ export const userManagement = {
     confirmReset2: '.button.btn.btn-secondary',
     
     //Success Messages
-    successMessage: 'text=User information updated successfully',
+    editUserSuccessMessage: 'text=User information updated successfully',
+    resetPasswordMessage: 'text=User Password reset is successfully sent',
 
    //New user messages
    errorMessage: 'Invalid email address!',
