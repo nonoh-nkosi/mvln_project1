@@ -2,17 +2,17 @@ export const forgotPassword = {
 
     //Heading
     forgotPasswordHeading: 'resetHeader',
-    //or
-    //forgotPasswordHeading: 'Reset Password',
-
 
     //Fields
-    emailField: 'emailInput',
+    emailField: '[id="emailInput"]',
     emailPlaceholder: 'Email',
 
     //Button
-    getLink: 'resetButton',
-    //or
-    //getLink: 'Get Link',s
+    getLink: '[id="resetButton"]',
+
+    //Confirmation Message
+    notification: '[id="notification"]',
+    confirmationMessage: 'If a valid email is registered in our system, you will promptly receive an email containing a link to reset your password.',
+   
 
 }
