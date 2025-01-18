@@ -18,18 +18,14 @@ export const userManagement = {
     signOut: 'Sign Out',
 
        //singleAccount Role Buttons
-       checkBox1: 'customCheckbox1',
-       checkBox2: 'styledCheckBox',
-
-       updateUserRole1: '[id="newRoleButton"]',
-       //or
-       updateUserRole2: 'Update User Roles',
+       fillCheckbox: 'label[for="customCheckbox1"].styledCheckbox',
+       bulkDropdown: 'ul.t-dropdown-list',
+      
+       updateUserRole: 'Update User Roles',
 
        bulkActionSelect: '[id="BulkOptionRoleSelect"]',
 
-       bulkConfirm1: 'Confirm',
-       //or
-       bulkConfirm2: 'bulkRoleSave',
+       bulkConfirm: '[id="bulkRoleSave"]',
 
        userSelectRole: '[id="optionRoleSelect648"]',
        //Buttons
