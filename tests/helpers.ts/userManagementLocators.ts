@@ -2,69 +2,66 @@
 
 export const userManagement = {
 
-   heading: 'User Account Management',
+      //Headings
+      userInformation: 'User Information',
+       heading: 'User Account Management',
+    
+    //Buttons
+    addUserButton: '[id="openModalBtn"]',
+     submitBtn:'button[text()="Submit"]',
+     closeButton: 'span[aria-hidden="true"]',
+    
+     editButton: 'Edit',
+     saveButton: 'button:has-text("Save")',
+    confirmButton: 'button.editConfirmation',
 
-   //Menu
-   menu: '[id="menuText"]',
+       //singleAccount Role Buttons
+       fillCheckbox: 'label[for="customCheckbox1"].styledCheckbox',
 
-   //Buttons for creating new user
-   addUserButton: '[id="openModalBtn"]',
-   submitBtn:'button:has-text("Submit")',
-   closeButton: 'span[aria-hidden="true"]',
-   signOut: 'span:has-text("Sign Out")',
+       bulkAction: '.t-select-btn',
+       bulkDropdown: 'ul.t-dropdown-list',
+      
+       updateUserRole: 'Update User Roles',
 
-   //Buttons for editing user
-   editButton: 'Edit',
-   saveButton: 'button.btn.btn-secondary.userEditField.editConfirmation',
-   confirmButton: 'button.editConfirmation',
-   closeBtn: 'button.btn.btn-secondary',
+       bulkActionSelect: '[id="BulkOptionRoleSelect"]',
 
-   //Buttons Deactivating user
-   deactivateButton: 'li#deactivateButton.t-dropdown-item',
-   confirmDeactivationBtn: 'button.btn.btn-secondary',
+       bulkConfirm: '[id="bulkRoleSave"]',
 
-   //CheckBox for deactivating user
-   bandilebox: 'label[for="customCheckbox3"].styledCheckbox',
+       userSelectRole: '[id="optionRoleSelect648"]',
+       //Buttons
+       confirmRole: '[id="confirmRoleBtn"]',
+       cancel: '.btn btn-secondary',
 
-   //Fields for New user
-   nameField: '[id="name"]',
-   surnameField: '[id="surname"]',
-   emailField: '[id="email"]',
-   phoneField: '[id="phone"]',
-   departmentField: '[id="department"]',
-   editEmail: '[id="email_647"]',
-   editDepartment: '[id="department_647"]',
+       //Confirmation Message
+       resetConfirm: 'Bulk User Roles updated successfully',
 
-   //Fields for editing user
-   name: '[id="name_647"]',
 
-   //Dropdown
-   role: '[id="role"]',
-   mainPageRole: '[id="optionRoleSelect646"]',
-   clickToView: 'span.t-select-btn',
-   clickToViewChild: '[id="646"]',
-   bulkAction: 'span.t-select-btn',
+    
+    //Fields 
+    nameField: '[id="name"]',
+    sunameField: '[id="surname"]',
+    emailField: '[id="email"]',
+    phoneField: '[id="phone"]',
+    departmentField: '[id="department"]',
+    role:  '[id="role"]',
 
-   //New user messages
-   errorMessage: 'Invalid email address!',
-   userExist: '//span[@class="error-message"]',
+    //Edit User Fields
+    editEmail: '[id="email_647"]',
+    editDepartment: '[id="department_647"]',
+    name: '[id="name_647"]',
+    
+    //Error messages
+    errorMessage: 'Invalid email address!',
+    editErrorMessage: '.errorDiv',
+    
+    //Success Messages
+    confirmMessage: 'h5:has-text("Please Confirm Changes:")',
+    successMessage: 'text=User information updated successfully',
+    
+    //Links
+    // userElement: 'span:has-text("will parker")',
+    // userElement: 'Will parker',
+    userElement: '#fullNameTable_647',
 
-   //Edit user messages
-   confirmMessage: 'h5:has-text("Please Confirm Changes:")',
-   editErrorMessage: '.errorDiv',
-   successMessage: 'text=User information updated successfully',
 
-   //Deactivate messages
-   deactivationPromptMessage: 'h5.modal-title', 
-   
-   //Links
-   userElement: '#fullNameTable_647',
-   userManagement: 'text=User Management',
-   inactive: 'span#statusContainer_646',
-   report: 'a[href="/Reports/reports.php"]',
-   
-   //Headings
-   userInformation: 'User Information',
-   
-   }
-   
+}
