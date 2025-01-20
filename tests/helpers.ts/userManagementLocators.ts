@@ -2,38 +2,27 @@
 
 export const userManagement = {
 
-      //Headings
-      userInformation: 'User Information',
-      userPasswordReset: 'User Password Reset',
-       heading: 'User Account Management',
-    
-    //Buttons
-    addUserButton: '[id="openModalBtn"]',
-     submitBtn:'button[text()="Submit"]',
-     closeButton: 'span[aria-hidden="true"]',
-    
-     editButton: 'Edit',
-     saveButton: 'button:has-text("Save")',
-    confirmButton: 'button.editConfirmation',
-    signOut: 'Sign Out',
+   heading: 'User Account Management',
 
-       //singleAccount Role Buttons
-       fillCheckbox: 'label[for="customCheckbox1"].styledCheckbox',
-       bulkDropdown: 'ul.t-dropdown-list',
-      
-       updateUserRole: 'Update User Roles',
+   //Menu
+   menu: '[id="menuText"]',
 
-       bulkActionSelect: '[id="BulkOptionRoleSelect"]',
+   //Buttons for creating new user
+   addUserButton: '[id="openModalBtn"]',
+   submitBtn:'button:has-text("Submit")',
+   closeButton: 'span[aria-hidden="true"]',
+   signOut: 'span:has-text("Sign Out")',
 
-       bulkConfirm: '[id="bulkRoleSave"]',
+   //Buttons for editing user
+   editButton: 'Edit',
+   saveButton: 'button.btn.btn-secondary.userEditField.editConfirmation',
+   confirmButton: 'button.editConfirmation',
+   closeBtn: 'button.btn.btn-secondary',
 
-       userSelectRole: '[id="optionRoleSelect648"]',
-       //Buttons
-       confirmRole: '[id="confirmRoleBtn"]',
-       cancel: '.btn btn-secondary',
+   //Buttons Deactivating user
+   deactivateButton: 'li#deactivateButton.t-dropdown-item',
+   confirmDeactivationBtn: 'button.btn.btn-secondary',
 
-       //Confirmation Message
-       resetConfirm: 'Bulk User Roles updated successfully',
    //CheckBox for deactivating user
    bandilebox: 'label[for="customCheckbox3"].styledCheckbox',
 
@@ -42,6 +31,12 @@ export const userManagement = {
    surnameField: '[id="surname"]',
    emailField: '[id="email"]',
    phoneField: '[id="phone"]',
+   departmentField: '[id="department"]',
+   editEmail: '[id="email_647"]',
+   editDepartment: '[id="department_647"]',
+
+   //Fields for editing user
+   name: '[id="name_647"]',
 
    //Dropdown
    role: '[id="role"]',
@@ -50,23 +45,6 @@ export const userManagement = {
    clickToViewChild: '[id="646"]',
    bulkAction: 'span.t-select-btn',
 
-    //Edit User Fields
-    editEmail: '[id="email_647"]',
-    editDepartment: '[id="department_647"]',
-    name: '[id="name_647"]',
-
-    //Reset Password Buttons
-    resetPassword1: 'Reset Password',
-    resetPassword2: '.button.btn.btn-secondary',
-
-    confirmReset1: 'Send Reset',
-    //or
-    confirmReset2: '.button.btn.btn-secondary',
-    
-    //Success Messages
-    editUserSuccessMessage: 'text=User information updated successfully',
-    resetPasswordMessage: 'text=User Password reset is successfully sent',
-
    //New user messages
    errorMessage: 'Invalid email address!',
    userExist: '//span[@class="error-message"]',
@@ -74,6 +52,7 @@ export const userManagement = {
    //Edit user messages
    confirmMessage: 'h5:has-text("Please Confirm Changes:")',
    editErrorMessage: '.errorDiv',
+   successMessage: 'text=User information updated successfully',
 
    //Deactivate messages
    deactivationPromptMessage: 'h5.modal-title', 
@@ -85,7 +64,7 @@ export const userManagement = {
    report: 'a[href="/Reports/reports.php"]',
    
    //Headings
-   //userInformation: 'User Information',
+   userInformation: 'User Information',
    
    }
    

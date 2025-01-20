@@ -4,7 +4,7 @@ import { userManagement } from "./helpers.ts/userManagementLocators.ts";
 import { newUserDetails } from "./testdata/newUserDetails.data.ts";
 
 test.describe('New User', () => {
-    
+// beforeEach hook to navigate to two different pages before each test
 test.beforeEach(async ({ page }) => {
 
 await login(page);
@@ -45,8 +45,8 @@ await page.locator(userManagement.phoneField).fill(newUserDetails.phone);
 const phone = await page.locator(userManagement.phoneField);
 await expect(phone).toHaveValue(newUserDetails.phone);
 
-await page.locator(userManagement.editDepartment).fill(newUserDetails.department);
-const department = await page.locator(userManagement.editDepartment);
+await page.locator(userManagement.departmentField).fill(newUserDetails.department);
+const department = await page.locator(userManagement.departmentField);
 await expect(department).toHaveValue(newUserDetails.department);
 
 await page.locator(userManagement.role).click();
@@ -88,6 +88,7 @@ await menu.click();
 
 const userManagementLink = await page.getByText('User Management');
 await userManagementLink.click();
+//await expect(userManagementLink).toBeDisabled();
 await expect(page).toHaveURL('http://10.10.10.118/Reports/reports.php#');
 }); 
 
@@ -111,8 +112,8 @@ await page.locator(userManagement.phoneField).fill(newUserDetails.phone);
 const phone = await page.locator(userManagement.phoneField);
 await expect(phone).toHaveValue(newUserDetails.phone);
 
-await page.locator(userManagement.editDepartment).fill(newUserDetails.department);
-const department = await page.locator(userManagement.editDepartment);
+await page.locator(userManagement.departmentField).fill(newUserDetails.department);
+const department = await page.locator(userManagement.departmentField);
 await expect(department).toHaveValue(newUserDetails.department);
 
 //Error message unrecognized and cannot be located
