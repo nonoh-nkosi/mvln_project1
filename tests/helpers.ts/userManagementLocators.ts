@@ -4,6 +4,7 @@ export const userManagement = {
 
       //Headings
       userInformation: 'User Information',
+      userPasswordReset: 'User Password Reset',
        heading: 'User Account Management',
     
     //Buttons
@@ -14,6 +15,7 @@ export const userManagement = {
      editButton: 'Edit',
      saveButton: 'button:has-text("Save")',
     confirmButton: 'button.editConfirmation',
+    signOut: 'Sign Out',
 
        //singleAccount Role Buttons
        checkBox1: 'customCheckbox1',
@@ -49,6 +51,14 @@ export const userManagement = {
     editEmail: '[id="email_647"]',
     editDepartment: '[id="department_647"]',
     name: '[id="name_647"]',
+
+    //Reset Password Buttons
+    resetPassword1: 'Reset Password',
+    resetPassword2: '.button.btn.btn-secondary',
+
+    confirmReset1: 'Send Reset',
+    //or
+    confirmReset2: '.button.btn.btn-secondary',
     
     //Error messages
     errorMessage: 'Invalid email address!',
@@ -56,7 +66,8 @@ export const userManagement = {
     
     //Success Messages
     confirmMessage: 'h5:has-text("Please Confirm Changes:")',
-    successMessage: 'text=User information updated successfully',
+    editUserSuccessMessage: 'text=User information updated successfully',
+    resetPasswordMessage: 'text=User Password reset is successfully sent',
     
     //Links
     // userElement: 'span:has-text("will parker")',
