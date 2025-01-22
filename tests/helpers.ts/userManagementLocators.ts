@@ -2,7 +2,6 @@
 
 export const userManagement = {
 
-<<<<<<< HEAD
       //Headings
       userInformation: 'User Information',
        heading: 'User Account Management',
@@ -23,30 +22,27 @@ export const userManagement = {
        bulkDropdown: 'ul.t-dropdown-list',
       
        updateUserRole: 'Update User Roles',
-=======
-   heading: 'User Account Management',
+   //heading: 'User Account Management',
 
    //Menu
    menu: '[id="menuText"]',
 
    //Buttons for creating new user
-   addUserButton: '[id="openModalBtn"]',
-   submitBtn:'button:has-text("Submit")',
-   closeButton: 'span[aria-hidden="true"]',
-   signOut: 'span:has-text("Sign Out")',
+   //addUserButton: '[id="openModalBtn"]',
+   //submitBtn:'button:has-text("Submit")',
+   //closeButton: 'span[aria-hidden="true"]',
+   //signOut: 'span:has-text("Sign Out")',
 
    //Buttons for editing user
-   editButton: 'Edit',
-   saveButton: 'button.btn.btn-secondary.userEditField.editConfirmation',
-   confirmButton: 'button.editConfirmation',
+   //editButton: 'Edit',
+   //saveButton: 'button.btn.btn-secondary.userEditField.editConfirmation',
+   //confirmButton: 'button.editConfirmation',
    closeBtn: 'button.btn.btn-secondary',
->>>>>>> 232d9a7 (created createNEWUser branch,added newUseDetails on testdata file and edited userManagementLocators)
 
    //Buttons Deactivating user
    deactivateButton: 'li#deactivateButton.t-dropdown-item',
    confirmDeactivationBtn: 'button.btn.btn-secondary',
 
-<<<<<<< HEAD
        bulkConfirm: '[id="bulkRoleSave"]',
 
        userSelectRole: '[id="optionRoleSelect648"]',
@@ -56,7 +52,6 @@ export const userManagement = {
 
        //Confirmation Message
        resetConfirm: 'Bulk User Roles updated successfully',
-=======
    //CheckBox for deactivating user
    bandilebox: 'label[for="customCheckbox3"].styledCheckbox',
 
@@ -68,7 +63,6 @@ export const userManagement = {
    departmentField: '[id="department"]',
    editEmail: '[id="email_647"]',
    editDepartment: '[id="department_647"]',
->>>>>>> 232d9a7 (created createNEWUser branch,added newUseDetails on testdata file and edited userManagementLocators)
 
    //Fields for editing user
    name: '[id="name_647"]',
@@ -78,13 +72,26 @@ export const userManagement = {
    mainPageRole: '[id="optionRoleSelect646"]',
    clickToView: 'span.t-select-btn',
    clickToViewChild: '[id="646"]',
-   bulkAction: 'span.t-select-btn',
+   //bulkAction: 'span.t-select-btn',
 
-<<<<<<< HEAD
     //Edit User Fields
+<<<<<<< HEAD
     editEmail: '[id="email_647"]',
     editDepartment: '[id="department_647"]',
     name: '[id="name_647"]',
+=======
+    //editEmail: '[id="email_647"]',
+    //editDepartment: '[id="department_647"]',
+    //name: '[id="name_647"]',
+
+    //Reset Password Buttons
+    resetPassword1: 'Reset Password',
+    resetPassword2: '.button.btn.btn-secondary',
+
+    confirmReset1: 'Send Reset',
+    //or
+    confirmReset2: '.button.btn.btn-secondary',
+>>>>>>> 40c6581 (Accepted changes from main and kept my changes)
     
     //Error messages
     errorMessage: 'Invalid email address!',
@@ -98,28 +105,26 @@ export const userManagement = {
     // userElement: 'span:has-text("will parker")',
     // userElement: 'Will parker',
     userElement: '#fullNameTable_647',
-=======
    //New user messages
-   errorMessage: 'Invalid email address!',
+   //errorMessage: 'Invalid email address!',
    userExist: '//span[@class="error-message"]',
->>>>>>> 232d9a7 (created createNEWUser branch,added newUseDetails on testdata file and edited userManagementLocators)
 
    //Edit user messages
-   confirmMessage: 'h5:has-text("Please Confirm Changes:")',
-   editErrorMessage: '.errorDiv',
+  // confirmMessage: 'h5:has-text("Please Confirm Changes:")',
+   //editErrorMessage: '.errorDiv',
    successMessage: 'text=User information updated successfully',
 
    //Deactivate messages
    deactivationPromptMessage: 'h5.modal-title', 
    
    //Links
-   userElement: '#fullNameTable_647',
+   //userElement: '#fullNameTable_647',
    userManagement: 'text=User Management',
    inactive: 'span#statusContainer_646',
    report: 'a[href="/Reports/reports.php"]',
    
    //Headings
-   userInformation: 'User Information',
+   //userInformation: 'User Information',
    
    }
    
