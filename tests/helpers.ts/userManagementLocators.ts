@@ -48,9 +48,13 @@ export const userManagement = {
     role:  '[id="role"]',
 
     //Edit User Fields
-    editEmail: '[id="email_647"]',
-    editDepartment: '[id="department_647"]',
     name: '[id="name_647"]',
+    surname: '[id="surname_647"]',
+    editEmail: '[id="email_647"]',
+    phone: '[id="phone_647"]',
+    department: '[id="department_647"]',
+    editRole:  '[id="role_647"]',
+    email: '[id="email_647"]',
     
     //Error messages
     errorMessage: 'Invalid email address!',
