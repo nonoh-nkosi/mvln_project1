@@ -45,8 +45,8 @@ await page.locator(userManagement.phoneField).fill(newUserDetails.phone);
 const phone = await page.locator(userManagement.phoneField);
 await expect(phone).toHaveValue(newUserDetails.phone);
 
-await page.locator(userManagement.departmentField).fill(newUserDetails.department);
-const department = await page.locator(userManagement.departmentField);
+await page.locator(userManagement.editDepartment).fill(newUserDetails.department);
+const department = await page.locator(userManagement.editDepartment);
 await expect(department).toHaveValue(newUserDetails.department);
 
 await page.locator(userManagement.role).click();
@@ -112,8 +112,8 @@ await page.locator(userManagement.phoneField).fill(newUserDetails.phone);
 const phone = await page.locator(userManagement.phoneField);
 await expect(phone).toHaveValue(newUserDetails.phone);
 
-await page.locator(userManagement.departmentField).fill(newUserDetails.department);
-const department = await page.locator(userManagement.departmentField);
+await page.locator(userManagement.editDepartment).fill(newUserDetails.department);
+const department = await page.locator(userManagement.editDepartment);
 await expect(department).toHaveValue(newUserDetails.department);
 
 //Error message unrecognized and cannot be located
