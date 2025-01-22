@@ -97,16 +97,16 @@ test('Verify error handling during during user account editing', async ({ page }
         await page.getByLabel(userManagement.userInformation).getByText(userManagement.editButton).click();
         
         await page.locator(userManagement.name).click();
-        await page.locator(userManagement.name).fill("");
+        await page.locator(userManagement.name).fill('');
         
         await page.locator(userManagement.surname).click();
-        await page.locator(userManagement.surname).fill("");
+        await page.locator(userManagement.surname).fill('');
 
         await page.locator(userManagement.email).click();
         await page.locator(userManagement.email).fill(newUserDetails.name);
 
         await page.locator(userManagement.phone).click();
-        await page.locator(userManagement.phone).fill("");
+        await page.locator(userManagement.phone).fill('');
 
         await page.locator(userManagement.department).click();
         await page.locator(userManagement.department).fill(newUserDetails.name);
