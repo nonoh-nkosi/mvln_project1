@@ -4,7 +4,7 @@ import { userManagement } from "./helpers.ts/userManagementLocators.ts";
 import { newUserDetails } from "./testdata/newUserDetails.data.ts";
 
 test.describe('New User', () => {
-// beforeEach hook to navigate to two different pages before each test
+    
 test.beforeEach(async ({ page }) => {
 
 await login(page);
@@ -88,7 +88,6 @@ await menu.click();
 
 const userManagementLink = await page.getByText('User Management');
 await userManagementLink.click();
-//await expect(userManagementLink).toBeDisabled();
 await expect(page).toHaveURL('http://10.10.10.118/Reports/reports.php#');
 }); 
 
