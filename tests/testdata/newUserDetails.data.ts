@@ -7,7 +7,7 @@
     phone: "712222222",
     department: "Client",
     role: "Visitor",
-    editName: "Willl"
+    editName: "Willy"
 
 };
 

@@ -16,6 +16,7 @@ export const userManagement = {
      confirmButton: 'button.editConfirmation',
      signOut: 'span.d-sm-inline',
      mainPageRole: '[id="optionRoleSelect646"]',
+     confirmBtn: 'button:has-text("Confirm")',
 
        //singleAccount Role Buttons
        fillCheckbox: 'label[for="customCheckbox1"].styledCheckbox',
@@ -65,9 +66,9 @@ export const userManagement = {
     successMessage: 'text=User information updated successfully',
     
     //Links
-    userManagement: 'http://10.10.10.118/User%20Accounts/userManagement.php',
+    userManagement: 'a[href="/User Accounts/userManagement.php"]',
     userElement: '#fullNameTable_647',
-    report: 'http://10.10.10.118/Reports/reports.php',
+    report: 'a[href="/Reports/reports.php"]',
     menu: '[id="menuText"]',
 
 

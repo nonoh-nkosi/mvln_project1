@@ -34,7 +34,7 @@ await page.locator(userManagement.name).click();
 await page.locator(userManagement.name).fill(newUserDetails.editName);
 await page.locator(userManagement.saveButton).click();
 
-const confirmButton = await page.locator(userManagement.confirmButton);
+const confirmButton = await page.locator(userManagement.confirmBtn);
 await confirmButton.click();
 await expect(confirmButton).toBeEnabled();
 
@@ -58,13 +58,12 @@ await page.locator(userManagement.name).click();
 await page.locator(userManagement.name).fill(newUserDetails.name);
 await page.locator(userManagement.saveButton).click();
 
-const confirmButton2 = await page.locator(userManagement.confirmButton);
+const confirmButton2 = await page.locator(userManagement.confirmBtn);
 await confirmButton2.click();
-await expect(confirmButton).toBeEnabled();
+await expect(confirmButton2).toBeEnabled();
 
 const close2 = await page.locator(userManagement.closeButton).last();
 await close.click();
-
 
 });
 
@@ -114,7 +113,7 @@ test('Verify error handling during during user account editing', async ({ page }
     
         await page.locator(userManagement.saveButton).click();
 
-        const confirmButton2 = await page.locator(userManagement.confirmButton);
+        const confirmButton2 = await page.locator(userManagement.confirmBtn);
         await confirmButton2.click();
         await expect(confirmButton2).toBeEnabled();
 
