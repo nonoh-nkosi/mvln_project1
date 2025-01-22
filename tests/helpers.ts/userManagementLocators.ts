@@ -4,39 +4,30 @@ export const userManagement = {
 
       //Headings
       userInformation: 'User Information',
-       heading: 'User Account Management',
-    
-    //Buttons
-    addUserButton: '[id="openModalBtn"]',
-     submitBtn:'button[text()="Submit"]',
-     closeButton: 'span[aria-hidden="true"]',
-    
-     editButton: 'Edit',
-     saveButton: 'button:has-text("Save")',
-    confirmButton: 'button.editConfirmation',
+      userPasswordReset: 'User Password Reset',
 
        //singleAccount Role Buttons
        fillCheckbox: 'label[for="customCheckbox1"].styledCheckbox',
 
-       bulkAction: '.t-select-btn',
        bulkDropdown: 'ul.t-dropdown-list',
       
        updateUserRole: 'Update User Roles',
-   //heading: 'User Account Management',
+
+   heading: 'User Account Management',
 
    //Menu
    menu: '[id="menuText"]',
 
    //Buttons for creating new user
-   //addUserButton: '[id="openModalBtn"]',
-   //submitBtn:'button:has-text("Submit")',
-   //closeButton: 'span[aria-hidden="true"]',
-   //signOut: 'span:has-text("Sign Out")',
+   addUserButton: '[id="openModalBtn"]',
+   submitBtn:'button:has-text("Submit")',
+   closeButton: 'span[aria-hidden="true"]',
+   signOut: 'span:has-text("Sign Out")',
 
    //Buttons for editing user
-   //editButton: 'Edit',
-   //saveButton: 'button.btn.btn-secondary.userEditField.editConfirmation',
-   //confirmButton: 'button.editConfirmation',
+   editButton: 'Edit',
+   saveButton: 'button.btn.btn-secondary.userEditField.editConfirmation',
+   confirmButton: 'button.editConfirmation',
    closeBtn: 'button.btn.btn-secondary',
 
    //Buttons Deactivating user
@@ -60,29 +51,18 @@ export const userManagement = {
    surnameField: '[id="surname"]',
    emailField: '[id="email"]',
    phoneField: '[id="phone"]',
-   departmentField: '[id="department"]',
-   editEmail: '[id="email_647"]',
-   editDepartment: '[id="department_647"]',
-
-   //Fields for editing user
-   name: '[id="name_647"]',
 
    //Dropdown
    role: '[id="role"]',
    mainPageRole: '[id="optionRoleSelect646"]',
    clickToView: 'span.t-select-btn',
    clickToViewChild: '[id="646"]',
-   //bulkAction: 'span.t-select-btn',
+   bulkAction: 'span.t-select-btn',
 
     //Edit User Fields
-<<<<<<< HEAD
     editEmail: '[id="email_647"]',
     editDepartment: '[id="department_647"]',
     name: '[id="name_647"]',
-=======
-    //editEmail: '[id="email_647"]',
-    //editDepartment: '[id="department_647"]',
-    //name: '[id="name_647"]',
 
     //Reset Password Buttons
     resetPassword1: 'Reset Password',
@@ -91,34 +71,23 @@ export const userManagement = {
     confirmReset1: 'Send Reset',
     //or
     confirmReset2: '.button.btn.btn-secondary',
->>>>>>> 40c6581 (Accepted changes from main and kept my changes)
-    
-    //Error messages
-    errorMessage: 'Invalid email address!',
-    editErrorMessage: '.errorDiv',
     
     //Success Messages
-    confirmMessage: 'h5:has-text("Please Confirm Changes:")',
     successMessage: 'text=User information updated successfully',
-    
-    //Links
-    // userElement: 'span:has-text("will parker")',
-    // userElement: 'Will parker',
-    userElement: '#fullNameTable_647',
+
    //New user messages
-   //errorMessage: 'Invalid email address!',
+   errorMessage: 'Invalid email address!',
    userExist: '//span[@class="error-message"]',
 
    //Edit user messages
-  // confirmMessage: 'h5:has-text("Please Confirm Changes:")',
-   //editErrorMessage: '.errorDiv',
-   successMessage: 'text=User information updated successfully',
+   confirmMessage: 'h5:has-text("Please Confirm Changes:")',
+   editErrorMessage: '.errorDiv',
 
    //Deactivate messages
    deactivationPromptMessage: 'h5.modal-title', 
    
    //Links
-   //userElement: '#fullNameTable_647',
+   userElement: '#fullNameTable_647',
    userManagement: 'text=User Management',
    inactive: 'span#statusContainer_646',
    report: 'a[href="/Reports/reports.php"]',
