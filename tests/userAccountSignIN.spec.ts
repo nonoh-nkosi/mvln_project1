@@ -58,6 +58,7 @@ test.describe('Verify User Login Authentication', () => {
     
     test('Verify Secure User Login With Encryption', async ({ page }) => {
     //DN-97
+    //Unable to validate that url contains https
     });
     
     test('Verify Account Locking After Multiple Unsuccessful Login Attempts', async ({ page }) => {
