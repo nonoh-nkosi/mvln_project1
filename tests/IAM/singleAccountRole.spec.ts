@@ -1,8 +1,8 @@
 import { expect, test } from "@playwright/test";
-import { login } from "./helpers.ts/login.ts";
-import { landingPage } from "./helpers.ts/landingPageLocators.ts";
-import { singleRole } from "./testdata/AccountRole.data.ts";
-import { userManagement} from "./helpers.ts/userManagementLocators.ts";
+import { login } from "../helpers.ts/login.ts";
+import { landingPage } from "../helpers.ts/landingPageLocators.ts";
+import { singleRole } from "../testdata/AccountRole.data.ts";
+import { userManagement} from "../helpers.ts/userManagementLocators.ts";
 
 test.beforeEach(async ({ page }) => {
     await login(page);

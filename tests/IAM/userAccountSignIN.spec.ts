@@ -1,7 +1,7 @@
 import { expect, test } from "playwright/test";
-import { landingPage } from "./helpers.ts/landingPageLocators";
-import { config } from "./helpers.ts/config";
-import { signInCredentials } from "./testdata/logincredentials.data";
+import { landingPage } from "../helpers.ts/landingPageLocators";
+import { config } from "../helpers.ts/config";
+import { signInCredentials } from "../testdata/logincredentials.data";
 
 test.beforeEach( async ({ page }) => {
 
