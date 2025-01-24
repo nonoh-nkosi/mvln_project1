@@ -21,7 +21,6 @@ await menu.click();
 const userManagementLink = await page.locator(userManagement.userManagement);
 await userManagementLink.click();
 
-
 });
 
 test('Navigating to roles and viewing them', async ({ page }) => {
@@ -30,5 +29,5 @@ test('Navigating to roles and viewing them', async ({ page }) => {
     await expect(roles).toBeVisible();
     await roles.click();
 
-
-});})
+});
+});
