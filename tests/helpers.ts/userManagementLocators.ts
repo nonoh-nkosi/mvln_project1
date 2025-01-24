@@ -58,6 +58,13 @@ export const userManagement = {
  editRole:  '[id="role_647"]',
  email: '[id="email_647"]',
 
+ //System configured
+ systemRole: '[id="role-dropdown"]',
+ systemRole2: '[id="optionRoleSelect646"]',
+ executiveRole: 'Executive / Company Administrator',
+ systemConfirm: '[id="confirmRoleBtn"]',
+ systemRole3: '[id="optionRoleSelect650"]',
+
      //Reset Password Buttons
      resetPassword1: 'Reset Password',
      resetPassword2: '.button.btn.btn-secondary',
