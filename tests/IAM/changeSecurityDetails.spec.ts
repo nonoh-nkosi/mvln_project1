@@ -1,11 +1,11 @@
 import { expect, test } from "@playwright/test";
-import { SecurityPage } from "./helpers.ts/securityPageLocators";
-import { landingPage } from "./helpers.ts/landingPageLocators";
-import { profilePage } from "./helpers.ts/profilePageLocators";
-import { forgotPassword } from "./helpers.ts/forgotPasswordLocators";
-import { config } from "./helpers.ts/config";
-import { login } from "./helpers.ts/login";
-import { updatePassword } from "./testdata/updatePassword.data";
+import { SecurityPage } from "../helpers.ts/securityPageLocators";
+import { landingPage } from "../helpers.ts/landingPageLocators";
+import { profilePage } from "../helpers.ts/profilePageLocators";
+import { forgotPassword } from "../helpers.ts/forgotPasswordLocators";
+import { config } from "../helpers.ts/config";
+import { login } from "../helpers.ts/login";
+import { updatePassword } from "../testdata/updatePassword.data";
 
 //First Round Of Change Password Tests
 
