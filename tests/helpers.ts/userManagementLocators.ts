@@ -58,6 +58,9 @@ export const userManagement = {
  editRole:  '[id="role_647"]',
  email: '[id="email_647"]',
 
+ //Account Roles Page
+ pageRoles: '[id="role-dropdown"]',
+
      //Reset Password Buttons
      resetPassword1: 'Reset Password',
      resetPassword2: '.button.btn.btn-secondary',

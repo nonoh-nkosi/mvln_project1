@@ -26,7 +26,7 @@ await userManagementLink.click();
 
 test('Navigating to roles and viewing them', async ({ page }) => {
 
-    const roles = await page.locator('[id="role-dropdown"]');
+    const roles = await page.locator(userManagement.pageRoles);
     await expect(roles).toBeVisible();
     await roles.click();
 
