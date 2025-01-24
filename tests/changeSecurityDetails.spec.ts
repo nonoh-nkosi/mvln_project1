@@ -31,7 +31,7 @@ test.beforeEach(async ({ page }) => {
 
   test('Reset User Password from Profile', async ({ page }) => {
     
-    await page.locator(SecurityPage.securityTab).click();//During execution, the security tab is sometimes not be clickable
+    await page.locator(SecurityPage.securityTab).click();//During execution, the security tab is sometimes not clickable
     await page.locator(SecurityPage.securityTab).click();
 
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.valid.currentPassword);
