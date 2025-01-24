@@ -64,8 +64,9 @@ test('Successful Reset', async ({ page }) => {
 //Requires access to an email that the link will be sent to
 // });
 
-test('Error Handling', async ({ page }) => {
-});
+// test('Error Handling', async ({ page }) => {
+//Requires access to an email that the link will be sent to
+// });
 
 test.afterEach( async ({ page }) => {
 

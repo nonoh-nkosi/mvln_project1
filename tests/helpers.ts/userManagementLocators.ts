@@ -90,7 +90,7 @@ export const userManagement = {
 
      passwordResetBtn: '[id="passwordResetButton"]',
  
- 
+
  //Error messages
  emailErrorMessage: 'Invalid email address!',
  editErrorMessage: '.errorDiv',
@@ -107,6 +107,5 @@ export const userManagement = {
  userElement: '#fullNameTable_647',
     report: 'a[href="/Reports/reports.php"]',
  menu: '[id="menuText"]',
-
 
 }
