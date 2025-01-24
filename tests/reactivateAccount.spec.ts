@@ -45,7 +45,7 @@ test('Verify User Account Reactivation Process', async ({ page }) => {
     await page.locator(userManagement.reactivateCheckbox).click();
     await page.click(userManagement.bulkAction);
 
-    //During execution, the website tends to not fully, it scrolls up and down before clicking on bulk down which also does not fully load or appear.
+    //During execution, the website tends to not fully load, it scrolls up and down before clicking on bulk dropdown which also does not fully load or appear.
     await page.getByText(userManagement.activateAccount1).click();
 
     await page.getByText(userManagement.reactivateButton).click();
