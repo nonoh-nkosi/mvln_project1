@@ -65,6 +65,14 @@ export const userManagement = {
      confirmReset1: 'Send Reset',
      //or
      confirmReset2: '.button.btn.btn-secondary',
+
+
+     //Bulk Password Reset
+     checkBox1: 'label[for="customCheckbox0"].styledCheckbox',
+     checkBox2: 'label[for="customCheckbox1"].styledCheckbox',
+     checkBox3: 'label[for="customCheckbox2"].styledCheckbox',
+
+     passwordResetBtn: '[id="passwordResetButton"]',
  
  
  //Error messages
@@ -76,6 +84,7 @@ export const userManagement = {
  confirmMessage: 'h5:has-text("Please Confirm Changes:")',
  successMessage: 'text=User information updated successfully',
  resetPasswordMessage: 'text=User Password reset is successfully sent',
+ bulkResetPassword: 'text=User Password Update is sent successfully',
  
  //Links
     userManagement: 'a[href="/User Accounts/userManagement.php"]',
