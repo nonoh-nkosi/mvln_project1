@@ -39,8 +39,24 @@ export const userManagement = {
     //Confirmation Message
     resetConfirm: 'Bulk User Roles updated successfully',
 
+    
+           //Reactivate User Account 
+           reactivateCheckbox: 'label[for="customCheckbox0"].styledCheckbox',
+           activateAccount1: 'Activate',
+           //or
+           activateAccount2: '[id="ReActivateButton"]',
+           
+           //Button
+           activateCode: 'button.btn.btn-secondary',
+           reactivateButton: 'Confirm Activation',
 
-   
+           //Message
+           activationNotification: '[id="emailNotification"]',
+           activationMessage: 'Status for the users was successfully updated to Active',
+           deactivationMessage: 'User Deactivated successfully',
+           alreadyActive: 'The selected user is already active',
+    
+
  //Fields 
  nameField: '[id="name"]',
  surnameField: '[id="surname"]',
