@@ -117,21 +117,21 @@ test('Verify error handling during during user account editing', async ({ page }
         await confirmButton2.click();
         await expect(confirmButton2).toBeEnabled();
 
-        const errorMessageName = await page.locator('.errorDiv').first();
+        const errorMessageName = await page.locator(userManagement.validateNameError).first();
         await expect(errorMessageName).toBeVisible();
         await expect(errorMessageName).toHaveText('Invalid or missing name. Name must contain only letters and be between 1 and 100 characters long.');
         
-        const errorMessageSurname = await page.locator('.errorDiv').first();
+        const errorMessageSurname = await page.locator(userManagement.validateSurnameError).first();
         await expect(errorMessageSurname).toBeVisible();
         await expect(errorMessageSurname).toHaveText('Invalid or missing name. Name must contain only letters and be between 1 and 100 characters long.');
 
-        const errorMessageEmail = await page.locator('.errorDiv').first();
+        const errorMessageEmail = await page.locator(userManagement.validateEmailError).first();
         await expect(errorMessageEmail).toBeVisible();
 
-        const errorMessageDepartment = await page.locator('.errorDiv').first();
+        const errorMessageDepartment = await page.locator(userManagement.validateDepartmentError).first();
         await expect(errorMessageDepartment).toBeVisible();
         
-        const errorMessagePhone = await page.locator('.errorDiv').first();
+        const errorMessagePhone = await page.locator(userManagement.validatePhoneError).first();
         await expect(errorMessagePhone).toBeVisible();
 
         const close3 = await page.locator(userManagement.closeButton).last();
