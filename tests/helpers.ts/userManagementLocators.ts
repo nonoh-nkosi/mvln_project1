@@ -35,7 +35,6 @@ export const userManagement = {
     //Buttons
     confirmRole: '[id="confirmRoleBtn"]',
     cancel: '.btn btn-secondary',
-
     //Confirmation Message
     resetConfirm: 'Bulk User Roles updated successfully',
 
@@ -57,7 +56,7 @@ export const userManagement = {
            alreadyActive: 'The selected user is already active',
     
 
- //Fields 
+ //Add User Fields 
  nameField: '[id="name"]',
  surnameField: '[id="surname"]',
  emailField: '[id="email"]',
@@ -74,23 +73,22 @@ export const userManagement = {
  editRole:  '[id="role_647"]',
  email: '[id="email_647"]',
 
-     //Reset Password Buttons
+     //Bulk Password Reset Buttons
      resetPassword1: 'Reset Password',
      resetPassword2: '.button.btn.btn-secondary',
  
      confirmReset1: 'Send Reset',
-     //or
-     confirmReset2: '.button.btn.btn-secondary',
+     passwordResetBtn: '[id="passwordResetButton"]',
 
-
-     //Bulk Password Reset
+     //Bulk Password Reset Checkboxes
      checkBox1: 'label[for="customCheckbox0"].styledCheckbox',
      checkBox2: 'label[for="customCheckbox1"].styledCheckbox',
      checkBox3: 'label[for="customCheckbox2"].styledCheckbox',
 
-     passwordResetBtn: '[id="passwordResetButton"]',
+     //Messages
+     bulkResetPassword: 'text=User Password Update is sent successfully',
+     successNotification: '[id="successModal"]',
  
-
  //Error messages
  emailErrorMessage: 'Invalid email address!',
  editErrorMessage: '.errorDiv',
@@ -100,7 +98,6 @@ export const userManagement = {
  confirmMessage: 'h5:has-text("Please Confirm Changes:")',
  successMessage: 'text=User information updated successfully',
  resetPasswordMessage: 'text=User Password reset is successfully sent',
- bulkResetPassword: 'text=User Password Update is sent successfully',
  
  //Links
     userManagement: 'a[href="/User Accounts/userManagement.php"]',

@@ -27,9 +27,6 @@ test('Bulk Password Reset - User Selection', async ({ page }) => {
         await page.click(userManagement.bulkAction);//Click on the Bulk Action button
 });
 
-// test('Password Complexity Enforcement', async ({ page }) => {
-// });
-
 test('Successful Reset', async ({ page }) => {
 
         await page.getByText("User Management").click();
@@ -43,30 +40,17 @@ test('Successful Reset', async ({ page }) => {
 
         await page.click(userManagement.bulkAction);//Click on the Bulk Action button
 
-        
     await page.locator(userManagement.passwordResetBtn).getByText(userManagement.resetPassword1).click();
 
     //The button is sometimes unclickable and user should click on it multiple times
     await page.getByLabel(userManagement.userPasswordReset).getByText(userManagement.confirmReset1).click();
 
     //Confirmation Prompt
-    const resetPasswordMessage = await page.getByText(userManagement.bulkResetPassword);
+    const resetPasswordMessage = await page.locator(userManagement.successNotification);
     await expect(resetPasswordMessage).toBeVisible();
     await expect(resetPasswordMessage).toHaveCSS( 'color', 'rgb(0, 128, 0)');
-    await expect(resetPasswordMessage).toHaveText('User Password Update is sent successfully');
+    await expect(resetPasswordMessage).toHaveText(userManagement.bulkResetPassword);
 });
-
-// test('Generation of Temporary Passwords', async ({ page }) => {
-//Requires access to an email that the link will be sent to
-// });
-
-// test('Password Expiry and Reset Prompt', async ({ page }) => {
-//Requires access to an email that the link will be sent to
-// });
-
-// test('Error Handling', async ({ page }) => {
-//Requires access to an email that the link will be sent to
-// });
 
 test.afterEach( async ({ page }) => {
 
