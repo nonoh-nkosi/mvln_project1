@@ -61,6 +61,15 @@ test('Display Assigned Roles on Account Roles Page', async ({ page }) => {
     await expect(dropDown).toBeVisible();
 });
 
+test('Access to the User Management page should be restricted to authenticated Company Administrators only, ensuring secure and authorized access.', async ({ page }) => {
+
+    const userManagementLink = await page.getByText("User Management");
+    await expect(userManagementLink).toBeVisible();
+    await expect(userManagementLink).toBeEnabled(); 
+
+    await page.getByText(userManagement.heading).click();
+});
+
 test.afterEach( async ({ page }) => {
 
     await page.locator(dashBoardPage.signOut).click();
