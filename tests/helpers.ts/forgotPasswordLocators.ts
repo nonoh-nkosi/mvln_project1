@@ -1,7 +1,9 @@
+//This file contains the locators for the Forgot Password Page
+
 export const forgotPassword = {
 
     //Heading
-    forgotPasswordHeading: 'resetHeader',
+    forgotPasswordHeading: 'Reset Password',
 
     //Fields
     emailField: '[id="emailInput"]',

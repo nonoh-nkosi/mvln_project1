@@ -1,23 +1,27 @@
 import { expect, test } from "@playwright/test";
 import { profilePage } from "../helpers.ts/profilePageLocators";
-import { landingPage } from "../helpers.ts/landingPageLocators";
+import { dashBoardPage } from "../helpers.ts/dashboardpageLocators";
 import { notificationsPage } from "../helpers.ts/notificationsPageLocators";
 import { login } from "../helpers.ts/login";
 import { userAccount } from "../testdata/userProfile.data";
 
 test.beforeEach(async ({ page }) => {
     await login(page);
-    await page.locator(landingPage.dashBoardPage.welcomeMessage);
+    
+    const welcomeMessage = await page.getByText(dashBoardPage.welcomeMessage);
+    await expect(welcomeMessage).toBeVisible();
 
-    await page.hover(landingPage.dashBoardPage.profileEntity);
-    await page.locator(landingPage.dashBoardPage.profileEntity).click();
-    await page.getByText(landingPage.dashBoardPage.userPage).click();
+    await page.hover(dashBoardPage.profileEntity);
+    await page.locator(dashBoardPage.profileEntity).click();
+    await page.getByText(dashBoardPage.userPage).click();
 
+    const heading = await page.locator(profilePage.userSetting);
+    await expect(heading).toBeVisible();
+
+    await page.locator(profilePage.editProfile).click();
   });
 
 test('Update User Account Information', async ({ page }) => {
-
-    await page.locator(profilePage.editProfile).click();
     
     await page.locator(profilePage.phoneNumber).fill(userAccount.profile.phone);
     await page.locator(profilePage.department).fill(userAccount.profile.department);
@@ -27,16 +31,12 @@ test('Update User Account Information', async ({ page }) => {
 
 test('Customise Notification Preferences', async ({ page }) => {
     //Feature is incomplete. Test will be completed when it is fully developed
-
-    await page.locator(profilePage.editProfile).click();
     
     await page.getByText(notificationsPage.preferencesTab).click();
     await page.locator(notificationsPage.notificationsTab).click();
 });
 
 test('Mandatory Field Validation', async ({ page }) => {
-
-    await page.locator(profilePage.editProfile).click();
        
        await page.locator(profilePage.email).fill('');
 
@@ -46,8 +46,6 @@ test('Mandatory Field Validation', async ({ page }) => {
    });
 
    test('Information Update Confirmation Message', async ({ page }) => {
-
-    await page.locator(profilePage.editProfile).click();
        
        const roleDropdown = page.locator('select#role');
        await roleDropdown.selectOption(userAccount.profile.role);
@@ -62,8 +60,6 @@ test('Mandatory Field Validation', async ({ page }) => {
    });
 
    test('Real-time Update of User Account Information', async ({ page }) => {
-
-    await page.locator(profilePage.editProfile).click();
     
     await page.locator(profilePage.nameField).fill(userAccount.profile.name);
     await page.locator(profilePage.surnameField).fill(userAccount.profile.surname);
@@ -80,12 +76,9 @@ test('Mandatory Field Validation', async ({ page }) => {
 
     const surnameFieldValue = page.locator('[id="surname"]');
     await expect(surnameFieldValue).toHaveValue('Persona');
- 
 });
 
    test('User Account Update Error Handling', async ({ page }) => {
-
-    await page.locator(profilePage.editProfile).click();
        
        await page.locator(profilePage.email).click();
        await page.locator(profilePage.email).fill('');
@@ -112,7 +105,6 @@ test('Mandatory Field Validation', async ({ page }) => {
        await page.locator(profilePage.phoneNumber).fill(userAccount.profile.phone);
 
        await expect(phoneNumberErrorMessage).toBeHidden();
-
    });
 
    test.afterEach('Logout and Close page', async ({ page }) => {
@@ -124,7 +116,7 @@ test('Mandatory Field Validation', async ({ page }) => {
   
     //Alternative
     await page.locator(profilePage.dashBoardPage).click();
-    await page.locator(landingPage.dashBoardPage.signOut).click();
+    await page.locator(dashBoardPage.signOut).click();
  
     await page.close(); 
 });

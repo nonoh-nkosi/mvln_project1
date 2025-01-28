@@ -1,6 +1,6 @@
 import { expect, test } from "playwright/test";
 import { login } from "../helpers.ts/login";
-import { landingPage } from "../helpers.ts/landingPageLocators";
+import { dashBoardPage } from "../helpers.ts/dashboardpageLocators";
 import { userManagement } from "../helpers.ts/userManagementLocators";
 
 test.beforeEach( async ({ page }) => {
@@ -35,6 +35,9 @@ test('Access Control for Account Roles Page', async ({ page }) => {
     
     await page.getByText("User Management").click();
 
+    const userAccess = await page.getByText(userManagement.heading)
+    await expect(userAccess).toBeVisible();
+
        await page.locator(userManagement.fillCheckbox).click();
         await page.click(userManagement.bulkAction);
         
@@ -51,12 +54,15 @@ test('Display Assigned Roles on Account Roles Page', async ({ page }) => {
 
     await page.getByText("User Management").click();
 
+    const userAccess = await page.getByText(userManagement.heading)
+    await expect(userAccess).toBeVisible();
+
     const dropDown = page.locator(userManagement.userSelectRole);
     await expect(dropDown).toBeVisible();
 });
 
 test.afterEach( async ({ page }) => {
 
-    await page.locator(landingPage.dashBoardPage.signOut).click();
+    await page.locator(dashBoardPage.signOut).click();
     await page.close(); 
-})
+});

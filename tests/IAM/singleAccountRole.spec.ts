@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { login } from "../helpers.ts/login.ts";
-import { landingPage } from "../helpers.ts/landingPageLocators.ts";
+import { dashBoardPage } from "../helpers.ts/dashboardpageLocators.ts";
 import { singleRole } from "../testdata/AccountRole.data.ts";
 import { userManagement} from "../helpers.ts/userManagementLocators.ts";
 
@@ -12,6 +12,9 @@ test.beforeEach(async ({ page }) => {
 
     await page.click("text='Menu'");
     await page.getByText("User Management").click();
+
+    const heading = await page.getByText(userManagement.heading);
+    await expect(heading).toBeVisible();
 }),
 
   test('Assign a Single Account Role to users', async ({ page }) => {
@@ -25,7 +28,6 @@ test.beforeEach(async ({ page }) => {
     await bulkDropdown.selectOption(singleRole.bulkRole1);
 
     await page.locator(userManagement.bulkConfirm).click();
-    
   });
 
   
@@ -35,7 +37,6 @@ test.beforeEach(async ({ page }) => {
     await dropDown.selectOption(singleRole.dropDownRole)
 
     await page.locator(userManagement.confirmRole).click();
- 
   });
 
   
@@ -55,7 +56,6 @@ test.beforeEach(async ({ page }) => {
     await expect(resetConfirmation).toBeVisible();
     await expect(resetConfirmation).toHaveText(userManagement.resetConfirm);
     await expect(resetConfirmation).toHaveCSS('color', 'rgb(0, 128, 0)');
-
   });
 
   test('Confirm Account Role Assignment Updates User Roles', async ({ page }) => {
@@ -82,14 +82,11 @@ test.beforeEach(async ({ page }) => {
 
     //Button does not work, this is related to DN-79.
     await page.locator(userManagement.cancel).click();
-
   });
 
   test.afterEach(async ({ page }) => {
 
-    await page.locator(landingPage.dashBoardPage.signOut).click();
- 
+    await page.locator(dashBoardPage.signOut).click();
     await page.close(); 
-
-  })
+  });
   

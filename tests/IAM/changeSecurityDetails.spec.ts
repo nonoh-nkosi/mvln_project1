@@ -1,38 +1,39 @@
 import { expect, test } from "@playwright/test";
 import { SecurityPage } from "../helpers.ts/securityPageLocators";
-import { landingPage } from "../helpers.ts/landingPageLocators";
-import { profilePage } from "../helpers.ts/profilePageLocators";
+import { signInPage } from "../helpers.ts/signInPageLocators";
+import { dashBoardPage } from "../helpers.ts/dashboardpageLocators";
 import { forgotPassword } from "../helpers.ts/forgotPasswordLocators";
 import { config } from "../helpers.ts/config";
 import { login } from "../helpers.ts/login";
 import { updatePassword } from "../testdata/updatePassword.data";
 
 //First Round Of Change Password Tests
-
+// DN-48
 test.describe('Change Password From User Profile', () => {
 
   //Before Logging in using Login Function and opening Security page 
 test.beforeEach(async ({ page }) => {
 
     await login(page);
-    await page.locator(landingPage.dashBoardPage.welcomeMessage);
+    await page.locator(dashBoardPage.welcomeMessage);
 
-    await page.hover(landingPage.dashBoardPage.profileEntity);
-    await page.locator(landingPage.dashBoardPage.profileEntity).click();
-    await page.getByText(landingPage.dashBoardPage.userPage).click();
+    await page.hover(dashBoardPage.profileEntity);
+    await page.locator(dashBoardPage.profileEntity).click();
+    await page.getByText(dashBoardPage.userPage).click();
 
     await page.getByText(SecurityPage.userSubMenu).hover();
+
+ await page.locator(SecurityPage.securityTab).click();//During execution, the security tab is sometimes not clickable
+//Click on security tab again 
     await page.locator(SecurityPage.securityTab).click();
 
-    await page.locator(SecurityPage.securityTab).click();
+    const securityHeading = await page.locator(SecurityPage.securityHeading);
+    await expect(securityHeading).toBeVisible();
   });
 
   //Automated Tests
 
   test('Reset User Password from Profile', async ({ page }) => {
-    
-    await page.locator(SecurityPage.securityTab).click();//During execution, the security tab is sometimes not clickable
-    await page.locator(SecurityPage.securityTab).click();
 
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.valid.currentPassword);
 
@@ -44,8 +45,6 @@ test.beforeEach(async ({ page }) => {
   });
 
   test('Password Complexity in User Profile Password Reset', async ({ page }) => {
-
-    await page.locator(SecurityPage.securityTab).click();
 
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.weakPassword.currentPassword);
 
@@ -78,9 +77,6 @@ test.beforeEach(async ({ page }) => {
 
   test('Password Reset Guidance in User Profile', async ({ page }) => {
 
-    await page.locator(SecurityPage.securityTab).click();
-
-    await page.locator(SecurityPage.securityHeading).hover();
     await page.locator(SecurityPage.updatePasswordHeading).hover();
 
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.noChangesPassword.currentPassword);
@@ -99,8 +95,6 @@ test.beforeEach(async ({ page }) => {
 
   test('Password Reset Confirmation Message', async ({ page }) => {
 
-    await page.locator(SecurityPage.securityTab).click();
-
     await page.locator(SecurityPage.currentPassword).fill(updatePassword.valid.currentPassword);
 
     await page.locator(SecurityPage.newPassword).fill(updatePassword.valid.newPassword);
@@ -117,8 +111,6 @@ test.beforeEach(async ({ page }) => {
 
   test('Password Reset Error Handling', async ({ page }) => {
 
-    await page.locator(SecurityPage.securityTab).click();
-
     //Invalid password for Current Password
     await page.locator(SecurityPage.currentPassword).click();
     await page.locator(SecurityPage.currentPassword).fill('');
@@ -128,7 +120,7 @@ test.beforeEach(async ({ page }) => {
    
     //Error Message  for Current Password
     const currentPasswordErrorMessage = page.locator(SecurityPage.currentPasswordError).first();
-    await expect(currentPasswordErrorMessage).toHaveText('Incorect current passsword!');//spelling error
+    await expect(currentPasswordErrorMessage).toHaveText('Incorrect current passsword!');//spelling error
     await expect(currentPasswordErrorMessage).toBeVisible();
     await expect(currentPasswordErrorMessage).toHaveCSS('color', 'rgb(255, 0, 0)');
     
@@ -184,8 +176,8 @@ test.beforeEach(async ({ page }) => {
     /// await page.locator(profilePage.profileEntity).click();
     /// await page.getByText(profilePage.logoutButton).click();
     
-    await page.locator(profilePage.dashBoardPage).click();
-    await page.locator(landingPage.dashBoardPage.signOut).click();
+    await page.locator(SecurityPage.dashBoardPage).click();
+    await page.locator(dashBoardPage.signOut).click();
  
     await page.close(); 
 });
@@ -198,10 +190,13 @@ test.describe('Change Password Using Forgot Password', () => {
   test.beforeEach(async ({ page }) => {
 
     await page.goto(config.urls.login);
-    await page.locator(landingPage.loginPage.forgotPassword).click();
+    await page.locator(signInPage.forgotPassword).click();
   });
 
   test('Password Reset Confirmation Notification', async ({ page }) => {
+
+    const heading = await page.getByText(forgotPassword.forgotPasswordHeading);
+    await expect(heading).toBeVisible();
 
     await page.locator(forgotPassword.emailField).fill(config.credentials.email);
     await page.click(forgotPassword.getLink);
@@ -210,19 +205,6 @@ test.describe('Change Password Using Forgot Password', () => {
     await expect(confirmation).toHaveText(forgotPassword.confirmationMessage);
     await expect(confirmation).toBeVisible();
   });
-
-  // test('Password Reset Link Validity Period', async ({ page }) => {
-  // });
-
-  // test('Password Reset Security Measures with CAPTCHA', async ({ page }) => {
-  // });
-
-  // test('Secure Password Reset Form Navigation', async ({ page }) => {
-  // });
-
-//   test('Password Strength Indicator Visibility', async ({ page }) => {
-// Still in development
-//   });
 
   test.afterEach('Close page', async ({ page }) => {
   

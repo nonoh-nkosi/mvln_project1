@@ -1,6 +1,5 @@
-import { userManagement } from "./userManagementLocators";
+//This file contains the configuration details for the login function and some test files
 
-// config.ts
 export const config = {
     credentials: {
         email: 'bandilendlela@gmail.com',
