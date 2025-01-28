@@ -1,4 +1,4 @@
-//Update User Password Test Data
+//This file contains the test data for the change Security Details test file
 
 export const updatePassword = {
     valid: {

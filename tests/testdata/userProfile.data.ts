@@ -1,7 +1,7 @@
-//User Profile Test Data
+//This file contains the test data for the User Profile Information test file
 
 export const userAccount = {
-    //Use for UserProfileInformation
+   
     profile: {
         name: 'Bandilee',
         surname: 'Persona',

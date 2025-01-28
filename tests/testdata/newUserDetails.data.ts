@@ -1,3 +1,4 @@
+//This File contains the test data for the Create New User test file
 
    //Declaring new user's details
    export const newUserDetails = {
