@@ -9,8 +9,10 @@ export const SecurityPage = {
         //Headings
         securityHeading: 'h2:has-text("Security")',
         updatePasswordHeading: 'h2:has-text("Update Password")',
+        userSetting: 'h2:has-text("User Settings")',
 
         //Links
+        dashBoardPage:'[id="dashboardDirect"]',
 
         //Security Page Fields
         currentPassword: '[id="currentPassword"]',

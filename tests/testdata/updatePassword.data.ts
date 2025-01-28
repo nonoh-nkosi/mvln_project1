@@ -1,4 +1,4 @@
-//Update User Password Test Data
+//This file contains the test data for the change Security Details test file
 
 export const updatePassword = {
     valid: {
@@ -30,6 +30,5 @@ export const updatePassword = {
         currentPassword: 'DocuNation@1355',
         newPassword: 'DocuNation@1355',
         confirmPassword: 'DocuNation@1355',
-
     }
 }

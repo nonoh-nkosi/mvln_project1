@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
-import { login } from "./helpers.ts/login";
-import { landingPage } from "./helpers.ts/landingPageLocators";
-import { userManagement } from "./helpers.ts/userManagementLocators";
+import { login } from "../helpers.ts/login";
+import { dashBoardPage } from "../helpers.ts/dashboardpageLocators";
+import { userManagement } from "../helpers.ts/userManagementLocators";
 
 test.beforeEach( async ({ page }) => {
 
@@ -29,6 +29,9 @@ test('Notify User After Password Reset Initiation', async ({ page }) => {
 
     await page.getByText("User Management").click();
 
+    const heading = await page.getByText(userManagement.heading);
+    await expect(heading).toBeVisible();
+
     await page.click(userManagement.userElement);
     await page.getByLabel(userManagement.userInformation).getByText(userManagement.resetPassword1).click();
 
@@ -49,7 +52,6 @@ test('Authenticate Company Administrator Before Password Reset', async ({ page }
 
 test.afterEach( async ({ page }) => {
 
-    await page.click(landingPage.dashBoardPage.signOut);
+    await page.click(dashBoardPage.signOut);
     await page.close();
-
 });

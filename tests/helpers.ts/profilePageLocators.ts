@@ -2,6 +2,9 @@
 
 export const profilePage = {
 
+    //heading
+    userSetting: 'h2:has-text("User Settings")',
+
         //Links
        dashBoardPage:'[id="dashboardDirect"]',
        

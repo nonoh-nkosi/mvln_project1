@@ -1,7 +1,9 @@
+//This file contains the locators for the Forgot Password Page
+
 export const forgotPassword = {
 
     //Heading
-    forgotPasswordHeading: 'resetHeader',
+    forgotPasswordHeading: 'Reset Password',
 
     //Fields
     emailField: '[id="emailInput"]',
@@ -13,6 +15,4 @@ export const forgotPassword = {
     //Confirmation Message
     notification: '[id="notification"]',
     confirmationMessage: 'If a valid email is registered in our system, you will promptly receive an email containing a link to reset your password.',
-   
-
 }

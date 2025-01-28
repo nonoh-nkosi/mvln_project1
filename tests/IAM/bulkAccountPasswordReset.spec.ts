@@ -1,7 +1,7 @@
 import { expect, test } from "playwright/test";
-import { login } from "./helpers.ts/login";
-import { landingPage } from "./helpers.ts/landingPageLocators";
-import { userManagement } from "./helpers.ts/userManagementLocators";
+import { login } from "../helpers.ts/login";
+import { dashBoardPage } from "../helpers.ts/dashboardpageLocators";
+import { userManagement } from "../helpers.ts/userManagementLocators";
 
 test.beforeEach(async ({ page }) => {
 
@@ -54,6 +54,6 @@ test('Successful Reset', async ({ page }) => {
 
 test.afterEach( async ({ page }) => {
 
-  await page.click(landingPage.dashBoardPage.signOut);
+  await page.click(dashBoardPage.signOut);
   await page.close();
 });

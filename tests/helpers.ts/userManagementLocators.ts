@@ -49,8 +49,11 @@ export const userManagement = {
            activateCode: 'button.btn.btn-secondary',
            reactivateButton: 'Confirm Activation',
 
-           //Message
+           //Notifications
            activationNotification: '[id="emailNotification"]',
+           alreadyActiveNotification: '[id="successModal"]',
+
+           //Messages
            activationMessage: 'Status for the users was successfully updated to Active',
            deactivationMessage: 'User Deactivated successfully',
            alreadyActive: 'The selected user is already active',
@@ -104,5 +107,4 @@ export const userManagement = {
  userElement: '#fullNameTable_647',
     report: 'a[href="/Reports/reports.php"]',
  menu: '[id="menuText"]',
-
 }

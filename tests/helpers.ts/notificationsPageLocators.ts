@@ -7,5 +7,4 @@
 
          //Notifications
              notificationsTab: 'li:has-text("Notifications")', 
-         
         }
