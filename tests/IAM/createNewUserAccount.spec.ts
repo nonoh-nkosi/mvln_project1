@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import { login } from "../helpers.ts/login.ts";
 import { userManagement } from "../helpers.ts/userManagementLocators.ts";
 import { newUserDetails } from "../testdata/newUserDetails.data.ts";
+import { dashBoardPage } from "../helpers.ts/dashboardpageLocators.ts";
 
 test.describe('New User', () => {
 
