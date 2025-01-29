@@ -2,6 +2,8 @@ import { expect, test } from "@playwright/test";
 import { login } from "../helpers.ts/login";
 import { userManagement } from "../helpers.ts/userManagementLocators";
 import { newUserDetails } from "../testdata/newUserDetails.data";
+import { dashBoardPage } from "../helpers.ts/dashboardpageLocators";
+
 test.beforeEach(async ({ page }) => {
   
 await login(page); 
@@ -17,17 +19,16 @@ await menu.click();
 const userManagementLink = await page.locator(userManagement.userManagement);
 await userManagementLink.click();
 
-});
-
-test('Verify edit functionality', async ({ page }) => {
-
 const user = await page.locator(userManagement.userElement);
 await expect(user).toHaveText('Will parker');
 
 await page.locator(userManagement.userElement).click();
 
-//DN-29 "Verify User Account editing functionality"
 await page.getByLabel(userManagement.userInformation).getByText(userManagement.editButton).click();
+
+});
+
+test('Verify edit functionality', async ({ page }) => {
 
 //DN-30"Verify security measures and confirmation prompt for user account editing"
 await page.locator(userManagement.name).click();
@@ -47,12 +48,11 @@ await close.click();
 
 //Editing the Name back to normal from Willy to Will
 const user2 = await page.locator(userManagement.userElement);
-await expect(user).toHaveText('Willy parker');
+await expect(user2).toHaveText('Willy parker');
 
 await page.locator(userManagement.userElement).click();
 
 await page.getByLabel(userManagement.userInformation).getByText(userManagement.editButton).click();
-
 
 await page.locator(userManagement.name).click();
 await page.locator(userManagement.name).fill(newUserDetails.name);
@@ -68,19 +68,14 @@ await close.click();
 });
 
 test('Verify error handling during during user account editing', async ({ page }) => {
-
-    const user = await page.locator(userManagement.userElement);
-    await expect(user).toHaveText('Will parker');
-    
-    await page.locator(userManagement.userElement).click();
-    
-    await page.getByLabel(userManagement.userInformation).getByText(userManagement.editButton).click();
     
     await page.locator(userManagement.name).click();
     await page.locator(userManagement.name).fill(newUserDetails.name);
 
     const email = await page.locator(userManagement.editEmail).fill(newUserDetails.name);
 
+    //Blocked by DN-160
+    //Multiple error messages appear and doesn't know which one one to pick
     const errorMessage = await page.locator(userManagement.editErrorMessage)
     await expect(errorMessage).toBeVisible();
     await expect(errorMessage).toHaveText('Invalid email address!');
@@ -88,13 +83,6 @@ test('Verify error handling during during user account editing', async ({ page }
     });
 
     test('Verify validation rules for user account edits', async ({ page }) => {
-
-        const user = await page.locator(userManagement.userElement);
-        await expect(user).toHaveText('Will parker');
-        
-        await page.locator(userManagement.userElement).click();
-
-        await page.getByLabel(userManagement.userInformation).getByText(userManagement.editButton).click();
         
         await page.locator(userManagement.name).click();
         await page.locator(userManagement.name).fill('');
@@ -117,25 +105,35 @@ test('Verify error handling during during user account editing', async ({ page }
         await confirmButton2.click();
         await expect(confirmButton2).toBeEnabled();
 
-        const errorMessageName = await page.locator('.errorDiv').first();
+        const errorMessageName = await page.locator(userManagement.validateNameError).first();
         await expect(errorMessageName).toBeVisible();
         await expect(errorMessageName).toHaveText('Invalid or missing name. Name must contain only letters and be between 1 and 100 characters long.');
         
-        const errorMessageSurname = await page.locator('.errorDiv').first();
+        const errorMessageSurname = await page.locator(userManagement.validateSurnameError).first();
         await expect(errorMessageSurname).toBeVisible();
         await expect(errorMessageSurname).toHaveText('Invalid or missing name. Name must contain only letters and be between 1 and 100 characters long.');
 
-        const errorMessageEmail = await page.locator('.errorDiv').first();
+        const errorMessageEmail = await page.locator(userManagement.validateEmailError).first();
         await expect(errorMessageEmail).toBeVisible();
 
-        const errorMessageDepartment = await page.locator('.errorDiv').first();
+        const errorMessageDepartment = await page.locator(userManagement.validateDepartmentError).first();
         await expect(errorMessageDepartment).toBeVisible();
         
-        const errorMessagePhone = await page.locator('.errorDiv').first();
+        const errorMessagePhone = await page.locator(userManagement.validatePhoneError).first();
         await expect(errorMessagePhone).toBeVisible();
 
         const close3 = await page.locator(userManagement.closeButton).last();
         await close3.click();
 
         });
+
+        test.afterEach(async ({ page }) => {
+
+            await page.locator(dashBoardPage.signOut).click();
+         
+            await page.close(); 
+        
+        })
+          
+
 
