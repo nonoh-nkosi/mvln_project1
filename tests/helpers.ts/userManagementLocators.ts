@@ -75,6 +75,11 @@ export const userManagement = {
  department: '[id="department_647"]',
  editRole:  '[id="role_647"]',
  email: '[id="email_647"]',
+ validateNameError: '.errorDiv',
+ validateSurnameError: '.errorDiv',
+ validateEmailError: '.errorDiv',
+ validateDepartmentError: '.errorDiv',
+ validatePhoneError: '.errorDiv',
 
      //Bulk Password Reset Buttons
      resetPassword1: 'Reset Password',
