@@ -25,7 +25,6 @@ await expect(user).toHaveText('Will parker');
 await page.locator(userManagement.userElement).click();
 
 await page.getByLabel(userManagement.userInformation).getByText(userManagement.editButton).click();
-
 });
 
 test('Verify edit functionality', async ({ page }) => {
@@ -64,7 +63,6 @@ await expect(confirmButton2).toBeEnabled();
 
 const close2 = await page.locator(userManagement.closeButton).last();
 await close.click();
-
 });
 
 test('Verify error handling during during user account editing', async ({ page }) => {
@@ -79,7 +77,6 @@ test('Verify error handling during during user account editing', async ({ page }
     const errorMessage = await page.locator(userManagement.editErrorMessage)
     await expect(errorMessage).toBeVisible();
     await expect(errorMessage).toHaveText('Invalid email address!');
-    
     });
 
     test('Verify validation rules for user account edits', async ({ page }) => {
@@ -124,7 +121,6 @@ test('Verify error handling during during user account editing', async ({ page }
 
         const close3 = await page.locator(userManagement.closeButton).last();
         await close3.click();
-
         });
 
         test.afterEach(async ({ page }) => {
@@ -132,7 +128,6 @@ test('Verify error handling during during user account editing', async ({ page }
             await page.locator(dashBoardPage.signOut).click();
          
             await page.close(); 
-        
         })
           
 
