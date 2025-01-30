@@ -38,6 +38,21 @@ export const userManagement = {
     //Confirmation Message
     resetConfirm: 'Bulk User Roles updated successfully',
 
+     //Edit Account Role
+     cBox1: 'label[for="customCheckbox1"].styledCheckbox',
+     cBox2: 'label[for="customCheckbox3"].styledCheckbox',
+ 
+     bulkAction2: '.t-select-btn',
+     bulkDropdown2: 'ul.t-dropdown-list',
+    
+     updateUserRole2: 'Update User Roles',
+ 
+     bulkActionSelect2: '[id="BulkOptionRoleSelect"]',
+ 
+     bulkConfirm2: '[id="bulkRoleSave"]',
+ 
+     userSelectRole2: '[id="optionRoleSelect648"]',
+
     
            //Reactivate User Account 
            reactivateCheckbox: 'label[for="customCheckbox0"].styledCheckbox',
@@ -80,6 +95,8 @@ export const userManagement = {
  validateEmailError: '.errorDiv',
  validateDepartmentError: '.errorDiv',
  validatePhoneError: '.errorDiv',
+
+
 
      //Bulk Password Reset Buttons
      resetPassword1: 'Reset Password',
