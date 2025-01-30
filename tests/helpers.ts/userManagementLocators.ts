@@ -96,6 +96,11 @@ export const userManagement = {
      //Messages
      bulkResetPassword: 'text=User Password Update is sent successfully',
      successNotification: '[id="successModal"]',
+
+//Filter Options
+userDropdown: '[id="user-dropdown"]',
+roleDropdown: '[id="role-dropdown"]',
+changeRoleDropdown: '.form-select changeRole',
  
  //Error messages
  emailErrorMessage: 'Invalid email address!',
