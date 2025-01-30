@@ -6,14 +6,14 @@ export const filter ={
         1: 'Show All',
         2: 'Bandile Personal',
         3: 'Will parker',
-        4: 'Fill Buggs',
+        4: 'Fill Bugg',
     },
 
     role: {
         0: 'Filter Roles',
         1: 'Show All', 
         2: 'Accounts Administrator',
-        3: 'Sales Manager',
-        4: 'Executive/Company Administrator',
+        3: 'Visitor',
+        4: 'Executive / Company Administrator',
     },
 }

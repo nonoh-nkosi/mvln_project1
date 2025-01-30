@@ -97,12 +97,21 @@ export const userManagement = {
      bulkResetPassword: 'text=User Password Update is sent successfully',
      successNotification: '[id="successModal"]',
 
-//Filter Options
-userDropdown: '[id="user-dropdown"]',
-roleDropdown: '[id="role-dropdown"]',
+   //Filter Options
+//Filters
+userDropdown: '#user-dropdown',
+roleDropdown: '#role-dropdown',
+//User Dropdown boxes
 changeRoleDropdown: '.form-select changeRole',
- 
- //Error messages
+testRole1Dropdown: '[id="optionRoleSelect646"]',
+testRole2Dropdown: '[id="optionRoleSelect648"]',
+//Users Filter Ids
+userFilter1: '[id="fullNameTable_646"]',
+userFilter2: '[id="fullNameTable_649"]',
+//testRole1 Email Value
+emailValue: '[id="emailTable_646"]',
+
+ //Error message
  emailErrorMessage: 'Invalid email address!',
  editErrorMessage: '.errorDiv',
  newPasswordErrorMessage: 'Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character.',    
