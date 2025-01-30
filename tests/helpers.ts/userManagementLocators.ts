@@ -40,7 +40,7 @@ export const userManagement = {
 
      //Edit Account Role
      cBox1: 'label[for="customCheckbox1"].styledCheckbox',
-     cBox2: 'label[for="customCheckbox3"].styledCheckbox',
+     cBox2: 'label[for="customCheckbox5"].styledCheckbox',
  
      bulkAction2: '.t-select-btn',
      bulkDropdown2: 'ul.t-dropdown-list',
