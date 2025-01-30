@@ -76,6 +76,14 @@ export const userManagement = {
  department: '[id="department_647"]',
  editRole:  '[id="role_647"]',
  email: '[id="email_647"]',
+
+ //Company Details
+ settingLink: 'a:text("Settings")',
+ expenseLink: 'a[href="#expenses"]',
+ companyDetailsLink: 'a[href="#company_details"][data-toggle="list"]',
+ companyDetailsActive: 'a[href="#company_details"][data-toggle="list"].active',
+ companyName: 'input[name="company_name',
+
  validateNameError: '.errorDiv',
  validateSurnameError: '.errorDiv',
  validateEmailError: '.errorDiv',
