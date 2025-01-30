@@ -12,6 +12,9 @@ export const dashBoardPage = {
 
     //Links
     userManagement: 'a[href="/User Accounts/userManagement.php"]',
+    userManagementtext: 'text=User Management',
+    chartOfAccountText: 'text=Chart Of Accounts',
+    settings: 'text=Settings',
     chartOfAccount: 'a[href="/Chart of Accounts/chartOfAccounts.php"]',
     userPage: 'Profile',
 }
