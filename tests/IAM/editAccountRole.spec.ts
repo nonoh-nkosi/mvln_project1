@@ -46,7 +46,6 @@ test.beforeEach(async ({ page }) => {
     const userManagementLink = await page.locator(userManagement.userManagement);
     await userManagementLink.click();
 
-    
     const isDisabled = await userManagementLink.isDisabled();
     await expect(isDisabled).toBe(true);
   });
