@@ -100,7 +100,7 @@ export const userManagement = {
      bulkResetPassword: 'text=User Password Update is sent successfully',
      successNotification: '[id="successModal"]',
 
-   //Filter Options
+//Filter Options
 //Filters
 userDropdown: '#user-dropdown',
 roleDropdown: '#role-dropdown',

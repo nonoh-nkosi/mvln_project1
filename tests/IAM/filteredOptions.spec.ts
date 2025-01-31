@@ -3,7 +3,6 @@ import { login } from "../helpers.ts/login";
 import { userManagement } from "../helpers.ts/userManagementLocators";
 import { filter } from "../testdata/filterOptions.data";
 
-
 test.beforeEach(async ({ page }) => {
 
     await login(page);
