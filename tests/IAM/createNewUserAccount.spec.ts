@@ -20,8 +20,6 @@ await menu.click();
 
 const userManagementLink = await page.locator(userManagement.userManagement);
 await userManagementLink.click();
-
-
 });
 
 // This test will not create new user because delete functionality is not working
@@ -59,7 +57,6 @@ await page.locator(userManagement.submitBtn).click();
 const userAlreadyExist = await page.getByText('Name and surname already exist in the database');
 await expect(userAlreadyExist).toBeVisible();
 await expect(userAlreadyExist).toHaveCSS('color', 'rgb(255, 0, 0)');
-
 });
 
 test('Verify assignment of specific role to users', async ({ page }) => {
@@ -120,7 +117,6 @@ await expect(department).toHaveValue(newUserDetails.department);
 await page.locator(userManagement.submitBtn).click();
 const errorMessage2 = await page.getByText('Please fill out this field.');
 await expect(errorMessage2).toHaveText('Please fill out this field.');
-
 }); 
 
 });
