@@ -3,47 +3,48 @@
 export const businessDetails ={
 
     //Tabs
-    companyDetailsTab: 'Company Details',
     dashBoardPage: 'Dashboard',
+    companyDetailsTab: 'Company Details',
+    salesTab: 'Sales',
 
     //Company Details 
-    phone: '[id="company_phone"]',
-    email: '[id="email"]',
+    phone: '#company_phone.form-control',
+    email: '#email.form-control',
 
     //CompanyType 
-    vATStatus: '[id="vatStatus"]',
-    sACAAshipping: '[id="exemptionShipping"]',
+    vATStatus: '#vatStatus.form-select',
+    sACAAstatus: '#exemptionStatus.form-select',
 
     //Primary Contact Details
-    firstName: '[id="primaryName"]',
-    lastName: '[id="primarySurname"]',
-    phoneNumber: '[id="primaryPhone"]',
-    emailAddress: '[id="primaryEmail"]',
+    firstName: '#primaryName.form-control',
+    lastName: '#primarySurname.form-control',
+    phoneNumber: '#primaryPhone.form-control',
+    emailAddress: '#primaryEmail.form-control',
 
     //Billing Address 
-    billingStreet: '[id="billingStreet"]',
-    billingCity: '[id="billingCity"]',
-    billingState: '[id="billingState"]',
-    billingCountry: '[id="billingCountry"]',
-    billingPostal: '[id="billingPostal"]',
+    billingStreet: '#billingStreet.form-control',
+    billingCity: '#billingCity.form-control',
+    billingState: '#billingState.form-control',
+    billingCountry: '#billingCountry.form-control',
+    billingPostal: '#billingPostal.form-control',
 
     //Shipping Address 
-    sameBillingCheckbox: '[id="sameAsBilling"]',
-    shippingStreet: '[id="shippingStreet"]',
-    shippingCity: '[id="shippingCity"]',
-    shippingProvince: '[id="shippingState"]',
-    shippingCountry: '[id="shippingCountry"]',
-    shippingPostalCode: '[id="shippingPostal"]',
+    sameBillingCheckbox: '#sameAsBilling.form-control',
+    shippingStreet: '#shippingStreet.form-control',
+    shippingCity: '#shippingCity.form-control',
+    shippingProvince: '#shippingState.form-control',
+    shippingCountry: '#shippingCountry.form-control',
+    shippingPostalCode: '#shippingPostal.form-control',
 
     //Billing Additional 
-    billingATT: '[id="billingATT"]',
-    billingEmail: '[id="billingEmail"]',
+    billingATT: '#billingATT.form-control',
+    billingEmail: '#billingEmail.form-control',
 
     //Banking Details 
-    bank: '[id="bank"]',
-    bankAccountHolder: '[id="account_name"]',
-    accountNumber: '[id="account_no"]',
-    branch: '[id="branch_code"]',
+    bank: '#bank.form-control',
+    bankAccountHolder: '#account_name.form-control',
+    accountNumber: '#account_no.form-control',
+    branch: '#branch_code.form-control',
     
     //Save Button
     saveChanges: '[id="fixed-button"]', 

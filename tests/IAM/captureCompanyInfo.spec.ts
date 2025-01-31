@@ -23,8 +23,9 @@ test('Company Profile Information Capture', async ({ page }) => {
 
     await page.waitForLoadState('domcontentloaded');
 
+    //DN-161
     //DOM Content is not interactable after load is complete. The user has to wait a few minutes to interact with any of the fields
-   //Company Details
+    //Company Details
     const { email, phone } = captureInformation.companyDetails;
 
     await page.fill(businessDetails.email, email);
@@ -32,7 +33,7 @@ test('Company Profile Information Capture', async ({ page }) => {
 
     //Company Type
     const { sACAAExemptionStatus} = captureInformation.companyType;
-    await page.selectOption(businessDetails.sameBillingCheckbox, sACAAExemptionStatus);
+    await page.selectOption(businessDetails.sACAAstatus, sACAAExemptionStatus);
 
     //Primary Contact Details
     const { firstName, lastName, phoneNumber, emailAddress} = captureInformation.primaryContactDetails;
@@ -44,9 +45,9 @@ test('Company Profile Information Capture', async ({ page }) => {
     //Billing Address
     const { billingStreet, billingCity, billingCountry, billingProvince, billingPostalCode} = captureInformation.billingAddress;
     await page.fill(businessDetails.billingStreet, billingStreet);
-    await page.fill(businessDetails.billingCity, billingStreet);
+    await page.fill(businessDetails.billingCity, billingCity);
     await page.fill(businessDetails.billingCountry, billingCountry);
-    await page.fill(businessDetails.billingState, billingProvince);
+    await page.fill(businessDetails.billingState, billingProvince);//Executes until this point then stops since elements are not interactable
     await page.fill(businessDetails.billingPostal, billingPostalCode);
 
     //Shipping Address
@@ -87,6 +88,7 @@ test('Dynamic Update of System Fields and Templates', async ({ page }) => {
 
     await page.waitForLoadState('domcontentloaded');
 
+    //DN-161
     //DOM Content is not interactable after load is complete. The user has to wait a few minutes to interact with any of the fields
 
     //Company Details
@@ -101,7 +103,7 @@ test('Dynamic Update of System Fields and Templates', async ({ page }) => {
     //Company Type
     const { sACAAExemptionStatus} = captureInformation.companyType;
     
-    const sACAAExemptionStatusField = await page.locator(businessDetails.sACAAshipping);
+    const sACAAExemptionStatusField = await page.locator(businessDetails.sACAAstatus);
     await expect(sACAAExemptionStatusField).toHaveValue(sACAAExemptionStatus);
 
     //Primary Contact Details
@@ -140,20 +142,20 @@ test('Dynamic Update of System Fields and Templates', async ({ page }) => {
     //Shipping Address
     const { shippingStreet, shippingCity, shippingCountry, shippingProvince, shippingPostalCode} = captureInformation.shippingAddress;
     
-    const shippingStreetField = await page.locator(businessDetails.billingStreet);
-    await expect(shippingStreetField).toHaveValue(billingStreet);
+    const shippingStreetField = await page.locator(businessDetails.shippingStreet);
+    await expect(shippingStreetField).toHaveValue(shippingStreet);
 
-    const shippingCityField = await page.locator(businessDetails.billingCity);
-    await expect(shippingCityField).toHaveValue(billingCity);
+    const shippingCityField = await page.locator(businessDetails.shippingCity);
+    await expect(shippingCityField).toHaveValue(shippingCity);
 
-    const shippingCountryField = await page.locator(businessDetails.billingCountry);
-    await expect(billingCountryField).toHaveValue(billingCountry);
+    const shippingCountryField = await page.locator(businessDetails.shippingCountry);
+    await expect(shippingCountryField).toHaveValue(shippingCountry);
 
-    const shippingProvinceField = await page.locator(businessDetails.billingState);
-    await expect(shippingProvinceField).toHaveValue(billingProvince);
+    const shippingProvinceField = await page.locator(businessDetails.shippingProvince);
+    await expect(shippingProvinceField).toHaveValue(shippingProvince);
 
-    const shippingPostalField = await page.locator(businessDetails.billingPostal);
-    await expect(shippingPostalField).toHaveValue(billingPostalCode);
+    const shippingPostalField = await page.locator(businessDetails.shippingPostalCode);
+    await expect(shippingPostalField).toHaveValue(shippingPostalCode);
 
     //Billing Additional
     const { billingATT, billingEmail} = captureInformation.billingAdditional;

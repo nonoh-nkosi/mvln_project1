@@ -3,13 +3,17 @@
 export const captureInformation = {
 
     companyDetails: {
+        companyName: 'Essential Fuels (PTY) (LTD)40',
+        businessCPICRegNo: '2008/123456/78',
         email: '26imformation@email.co.za',
         phone: '0793814445',
+        website: 'https://www.25esssentialfuels.com',
     },
 
     companyType: {
         vATStatus: 'Active',
         sACAAExemptionStatus: 'Active',
+        vatNumber: '4123456725',
     },
 
     primaryContactDetails: {
@@ -22,16 +26,16 @@ export const captureInformation = {
     billingAddress: {
         billingStreet: '103 Marias Streets',
         billingCity: 'Heidelbergs',
-        billingProvince: 'Gautengs',
-        billingCountry: 'South Africas',
+        billingProvince: 'Gauteng',
+        billingCountry: 'South Africa',
         billingPostalCode: '14494',
     },
 
     shippingAddress: {
-        shippingStreet: '103 Marias Streets',
+        shippingStreet: '103 Marias Street',
         shippingCity: 'Heidelbergs',
-        shippingProvince: 'Gautengs',
-        shippingCountry: 'South Africas',
+        shippingProvince: 'Gauteng',
+        shippingCountry: 'South Africa',
         shippingPostalCode: '14494',
     },
 
