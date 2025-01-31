@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import { login } from "../helpers.ts/login";
 import { userManagement } from "../helpers.ts/userManagementLocators";
 import { newUserDetails } from "../testdata/newUserDetails.data";
+import { dashBoardPage } from "../helpers.ts/dashboardpageLocators";
 
 test.beforeEach(async ({ page }) => {
   
