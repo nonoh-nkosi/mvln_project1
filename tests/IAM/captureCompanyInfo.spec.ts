@@ -123,8 +123,8 @@ test('Dynamic Update of System Fields and Templates', async ({ page }) => {
 
     //Billing Address 
     const { billingStreet, billingCity, billingCountry, billingProvince, billingPostalCode} = captureInformation.billingAddress;
-
-   const billingStreetField = await page.locator(businessDetails.billingStreet);
+    
+    const billingStreetField = await page.locator(businessDetails.billingStreet);
     await expect(billingStreetField).toHaveValue(billingStreet);
 
     const billingCityField = await page.locator(businessDetails.billingCity);
@@ -190,13 +190,13 @@ test('Audit Trail Visibility and Accessibility', async ({ page }) => {
    
     await page.waitForLoadState('domcontentloaded');
 
-     await page.locator('a', { hasText: audit.auditTrailTab }).click();
+    await page.locator('a', { hasText: audit.auditTrailTab }).click();
 });
 
 test.afterEach(async ({ page }) => {
 
-    //Button is sometimes unclickable and requires users to click on it multiple times
     await page.waitForLoadState('domcontentloaded');
+    //Button is sometimes unclickable and requires the User to click on it multiple times
     await page.getByRole('link', { name: businessDetails.dashBoardPage }).click();
 
     await page.click(dashBoardPage.signOut);
