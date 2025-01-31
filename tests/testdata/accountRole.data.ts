@@ -6,4 +6,5 @@ export const singleRole ={
     bulkRole2: 'Accounts Administrator',
 
     dropDownRole: 'Visitor',
+    dropDownRole2: 'External',
 }

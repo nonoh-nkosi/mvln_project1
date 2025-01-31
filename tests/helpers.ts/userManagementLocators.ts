@@ -20,6 +20,8 @@ export const userManagement = {
      confirmBtn: 'button:has-text("Confirm")',
 
     //singleAccount Role Buttons
+              //& 
+    //EditAccountRole
     fillCheckbox: 'label[for="customCheckbox1"].styledCheckbox',
 
     bulkAction: '.t-select-btn',
@@ -37,7 +39,6 @@ export const userManagement = {
     cancel: '.btn btn-secondary',
     //Confirmation Message
     resetConfirm: 'Bulk User Roles updated successfully',
-
     
            //Reactivate User Account 
            reactivateCheckbox: 'label[for="customCheckbox0"].styledCheckbox',
@@ -80,6 +81,8 @@ export const userManagement = {
  validateEmailError: '.errorDiv',
  validateDepartmentError: '.errorDiv',
  validatePhoneError: '.errorDiv',
+
+
 
      //Bulk Password Reset Buttons
      resetPassword1: 'Reset Password',
