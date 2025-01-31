@@ -18,7 +18,6 @@ await menu.click();
 
 const settingsLink = await page.locator(userManagement.settingLink);
 await settingsLink.click();
-
 });
 
 test('Company profile section accessibility', async ({ page }) => {
@@ -49,6 +48,5 @@ test('Company profile section accessibility', async ({ page }) => {
     await companyName.fill('');  
     await companyName.fill('Essential Fuels (PTY) (LTD)20');
     await saveButton.click();
-    
-        });
+    });
 
