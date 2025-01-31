@@ -48,7 +48,7 @@ test.beforeEach(async ({ page }) => {
 
     
     const isDisabled = await userManagementLink.isDisabled();
-    expect(isDisabled).toBe(true);
+    await expect(isDisabled).toBe(true);
   });
 
   test('Verify Edit Account Role and Confirm Account Role Assignment', async ({ page }) => {
