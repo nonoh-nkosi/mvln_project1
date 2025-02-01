@@ -59,7 +59,6 @@ export const userManagement = {
            deactivationMessage: 'User Deactivated successfully',
            alreadyActive: 'The selected user is already active',
     
-
  //Add User Fields 
  nameField: '[id="name"]',
  surnameField: '[id="surname"]',
@@ -82,8 +81,6 @@ export const userManagement = {
  validateDepartmentError: '.errorDiv',
  validatePhoneError: '.errorDiv',
 
-
-
      //Bulk Password Reset Buttons
      resetPassword1: 'Reset Password',
      resetPassword2: '.button.btn.btn-secondary',
@@ -100,6 +97,20 @@ export const userManagement = {
      bulkResetPassword: 'text=User Password Update is sent successfully',
      successNotification: '[id="successModal"]',
 
+//Filter Options
+//Filters
+userDropdown: '#user-dropdown',
+roleDropdown: '#role-dropdown',
+//User Dropdown boxes
+changeRoleDropdown: '.form-select changeRole',
+testRole1Dropdown: '[id="optionRoleSelect646"]',
+testRole2Dropdown: '[id="optionRoleSelect648"]',
+//Users Filter Ids
+userFilter1: '[id="fullNameTable_646"]',
+userFilter2: '[id="fullNameTable_649"]',
+//testRole1 Email Value
+emailValue: '[id="emailTable_646"]',
+
 //History Section
 historyButton: 'History',
 closeHistorySection: '#userRoleHistoryModal i',
@@ -109,7 +120,7 @@ timeStamp: 'span.dateStamp',
 accountChanges: 'span.taskText',
 accountName: 'span.userName',
 
- //Error messages
+ //Error message
  emailErrorMessage: 'Invalid email address!',
  editErrorMessage: '.errorDiv',
  newPasswordErrorMessage: 'Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character.',    
