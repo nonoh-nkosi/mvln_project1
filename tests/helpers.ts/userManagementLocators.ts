@@ -17,7 +17,7 @@ export const userManagement = {
   confirmButton: 'button.editConfirmation',
   signOut: 'span.d-sm-inline',
   mainPageRole: '[id="optionRoleSelect646"]',
-     confirmBtn: 'button:has-text("Confirm")',
+  confirmBtn: 'button:has-text("Confirm")',
 
     //singleAccount Role Buttons
               //& 
@@ -99,7 +99,16 @@ export const userManagement = {
      //Messages
      bulkResetPassword: 'text=User Password Update is sent successfully',
      successNotification: '[id="successModal"]',
- 
+
+//History Section
+historyButton: 'History',
+closeHistorySection: '#userRoleHistoryModal i',
+changeUserInfo: '[id="optionRoleSelect651"]',
+historyLog: 'li.historyData',
+timeStamp: 'span.dateStamp',
+accountChanges: 'span.taskText',
+accountName: 'span.userName',
+
  //Error messages
  emailErrorMessage: 'Invalid email address!',
  editErrorMessage: '.errorDiv',
