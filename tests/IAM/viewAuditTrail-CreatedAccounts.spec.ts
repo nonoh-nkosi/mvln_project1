@@ -32,10 +32,10 @@ test('View Audit Trail for Created User Accounts', async ({ page }) => {
 
 test.afterEach(async ({ page }) => {
 
-       await page.waitForLoadState('domcontentloaded');
-        //Button is sometimes unclickable and requires the User to click on it multiple times
-        await page.getByRole('link', { name: audit.dashBoardPage }).click();
-    
-        await page.click(dashBoardPage.signOut);
-        await page.close();
+    await page.waitForLoadState('domcontentloaded');
+    //Button is sometimes unclickable and requires the User to click on it multiple times
+    await page.getByRole('link', { name: audit.dashBoardPage }).click();
+
+    await page.click(dashBoardPage.signOut);
+    await page.close();
 });
