@@ -1,11 +1,13 @@
+//This file contains the History Section test file
+
 import { expect, test } from "playwright/test";
 import { login } from "../helpers.ts/login";
+import { formatISO9075, isEqual } from "date-fns";
 import { userManagement } from "../helpers.ts/userManagementLocators";
 import { history } from "../testdata/historySection.data";
-import { getCurrentTimestamp } from "../helpers.ts/timestamp";
-import { time } from "console";
 
 test.beforeEach(async ({ page }) => {
+
     await login(page);
 
     await page.getByRole('link', { name: 'Menu' }).click();
@@ -24,6 +26,7 @@ test('Verify the Existence and Accessibility of User Account History Section', a
     await expect(historySection).toBeVisible();
     await expect(historySection).toBeEnabled();
 
+    //Selecting a new role
     const testaccount = await page.locator(userManagement.changeUserInfo)
     await testaccount.selectOption('Visitor')
 
@@ -34,24 +37,19 @@ test('Verify the Existence and Accessibility of User Account History Section', a
     //Verify Seamless Navigation to User Account History Section
     await historySection.click();
 
-    //Retrieves the current time on your machine
-    const systemTimestamp = getCurrentTimestamp();
-    console.log(`Extracted System Timestamp: ${systemTimestamp}`);
+    //Capturing system date and formatting it the way it is on the website e.g. 2025-02-03 20:57:02
+    const systemTime = formatISO9075(new Date())
 
     //Verify Logging of Relevant User Account Changes in History Section
     const log = await page.locator(userManagement.historyLog).first()
     await expect(log).toBeVisible();
     
     // //Verify Accuracy of Timestamps in User Account History
-    const timeStamps = await log.locator(userManagement.timeStamp).allTextContents();
+    const timeStamps = String(log.locator(userManagement.timeStamp).allTextContents());
 
-    // await expect(timeStamps).toHaveValue(getCurrentTimestamp);
-    // //or
-    const webTime = timeStamps?.trim().split(' ')[1];
-    await expect(timeStamps).toBe('2025-02-01'+ new time());
-
-    // Assert that the extracted timestamp matches the current time
-    expect(webTime).toBe(timeStamps); 
+    //Checking if the dates are the same
+    const result = isEqual(systemTime, timeStamps);
+    await expect(result).toBeTruthy();
 
     const changes = await log.locator(userManagement.accountChanges);
     await expect(changes).toBeVisible();
@@ -59,8 +57,9 @@ test('Verify the Existence and Accessibility of User Account History Section', a
     await expect(changes).toHaveText(history.changes)
     
     const account = await log.locator(userManagement.accountName);
+    await expect(account).toBeVisible();
     //Verify User Association in User Account History Log Entries
-    await expect(changes).toHaveText(history.account);
+    await expect(account).toHaveText(history.account);
 });
 
 test.afterEach(async ({ page }) => {
