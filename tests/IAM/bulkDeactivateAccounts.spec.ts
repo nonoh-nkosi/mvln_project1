@@ -22,7 +22,6 @@ test.beforeEach(async ({ page }) => {
 
 test('Verify bulk deactivation to multiple accounts', async ({ page }) => {
 
-    //Deactivate accounts to allow test to run in a loop
     await page.click(userManagement.checkBox1);
     await page.click(userManagement.checkBox2);
     await page.click(userManagement.checkBox3);
@@ -30,10 +29,10 @@ test('Verify bulk deactivation to multiple accounts', async ({ page }) => {
     await page.click(userManagement.bulkAction);
 
     const deactivateButton = await page.locator(userManagement.bulkDeactivateButton);
-    await deactivateButton.click();//Click on  the Deactivate Button
+    await deactivateButton.click();
     await page.locator(userManagement.confirmDeactivation).click();
 
-    //Reactivate accounts
+    //Reactivating accounts
     await page.click(userManagement.checkBox1);
     await page.click(userManagement.checkBox2);
     await page.click(userManagement.checkBox3);
@@ -44,7 +43,7 @@ test('Verify bulk deactivation to multiple accounts', async ({ page }) => {
     await expect(activateButton).toBeVisible();
     await expect(activateButton).toHaveText(userManagement.activateAccount1);
     
-    await activateButton.click();//Click on  the Activate Button
+    await activateButton.click();
 
     await page.click(dashBoardPage.signOut);
     await page.close();
