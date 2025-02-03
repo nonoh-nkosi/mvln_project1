@@ -18,6 +18,11 @@ export const userManagement = {
   signOut: 'span.d-sm-inline',
   mainPageRole: '[id="optionRoleSelect646"]',
   confirmBtn: 'button:has-text("Confirm")',
+     
+  //Checkboxes
+  checkBox1: 'label[for="customCheckbox0"].styledCheckbox',
+  checkBox2: 'label[for="customCheckbox1"].styledCheckbox',
+  checkBox3: 'label[for="customCheckbox2"].styledCheckbox',
 
     //singleAccount Role Buttons
               //& 
@@ -58,6 +63,21 @@ export const userManagement = {
            activationMessage: 'Status for the users was successfully updated to Active',
            deactivationMessage: 'User Deactivated successfully',
            alreadyActive: 'The selected user is already active',
+
+     //Bulk Reactivate User Account
+     bulkReactivationPrompt1: 'div.modal-header d-flex justify-content-center',
+     bulkReactivationPrompt2: '[id="userModalLabel"]',
+     confirmationPrompt: 'div.modal-header h5.modal-title#userModalLabel',
+
+     bulkReactivationPromptHeading: 'User Re-Activate',
+     bulkReactivateDescription: 'div.d-flex.justify-content-center a',
+     bulkReactivateDescriptionText: 'Are you sure you want to Re-Activate 3 users',
+     confirmActivation: 'role=button[name="Confirm activation"]',
+     bulkReactivateNotification: 'Status for the users was successfully updated to Active',
+
+     //Deactivate User Account
+     bulkDeactivateButton: '[id="deactivateButton"]',
+     confirmDeactivation: 'role=button[name="Yes"]',
     
  //Add User Fields 
  nameField: '[id="name"]',
@@ -87,11 +107,6 @@ export const userManagement = {
  
      confirmReset1: 'Send Reset',
      passwordResetBtn: '[id="passwordResetButton"]',
-
-     //Bulk Password Reset Checkboxes
-     checkBox1: 'label[for="customCheckbox0"].styledCheckbox',
-     checkBox2: 'label[for="customCheckbox1"].styledCheckbox',
-     checkBox3: 'label[for="customCheckbox2"].styledCheckbox',
 
      //Messages
      bulkResetPassword: 'text=User Password Update is sent successfully',

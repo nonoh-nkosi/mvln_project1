@@ -2,5 +2,10 @@
 
 export const audit = {
    
-    auditTrailTab: 'Audit Trail'
+    //Tabs
+    auditTrailTab: 'Audit Trail',
+    dashBoardPage: 'Dashboard',
+    companyDetailsTab: 'Company Details',
+
+    auditTrailPage: '[id="auditTrail"]',
 }
