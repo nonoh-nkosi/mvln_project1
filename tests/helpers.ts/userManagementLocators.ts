@@ -69,10 +69,8 @@ export const userManagement = {
      bulkReactivationPrompt2: '[id="userModalLabel"]',
      confirmationPrompt: 'div.modal-header h5.modal-title#userModalLabel',
            //Deactivate User Account
-           deactivateCheckbox: 'label[for="customCheckbox0"].styledCheckbox',
-           deactivateAccount1: 'Deactivate',
-           deactivateAccount2: '[id="ReActivateButton"]',
-           deactivateButton: 'Confirm Activation',
+           deactivateCheckbox: 'label[for="customCheckbox6"].styledCheckbox',
+           deactivateButton: 'li[data-id="646"] a.actionButton',
 
 
      bulkReactivationPromptHeading: 'User Re-Activate',
