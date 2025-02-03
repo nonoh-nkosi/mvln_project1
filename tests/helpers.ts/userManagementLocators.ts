@@ -43,16 +43,13 @@ export const userManagement = {
    reactivateCheckbox: 'label[for="customCheckbox0"].styledCheckbox',
    activateAccount1: 'Activate',
            //or
-   activateAccount2: '[id="ReActivateButton"]',
-           
+   activateAccount2: '[id="ReActivateButton"]',    
    //Button
    activateCode: 'button.btn.btn-secondary',
    reactivateButton: 'Confirm Activation',
-
    //Notifications
    activationNotification: '[id="emailNotification"]',
    alreadyActiveNotification: '[id="successModal"]',
-
    //Messages
    activationMessage: 'Status for the users was successfully updated to Active',
    deactivationMessage: 'User Deactivated successfully',
@@ -99,6 +96,12 @@ export const userManagement = {
    validateEmailError: '.errorDiv',
    validateDepartmentError: '.errorDiv',
    validatePhoneError: '.errorDiv',
+
+   //Bulk Edit User Account
+   editUserRole: '[id="newRoleButton"]',
+   confirmRoleHeading: '[id="confirmModalLabel"]',
+   aliceRoleDropdown: '[id="optionRoleSelect652"]',
+   testingRoleDropdown: '[id="optionRoleSelect651"]',
 
    //Bulk Password Reset Buttons
    resetPassword1: 'Reset Password',
@@ -147,5 +150,5 @@ accountName: 'span.userName',
    userElement: '#fullNameTable_647',
    report: 'a[href="/Reports/reports.php"]',
    menu: '[id="menuText"]',
-   
+  
 }
