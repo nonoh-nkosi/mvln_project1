@@ -101,7 +101,11 @@ export const userManagement = {
  validateDepartmentError: '.errorDiv',
  validatePhoneError: '.errorDiv',
 
-
+     //Bulk Edit User Account
+     editUserRole: '[id="newRoleButton"]',
+     confirmRoleHeading: '[id="confirmModalLabel"]',
+     aliceRoleDropdown: '[id="optionRoleSelect652"]',
+     testingRoleDropdown: '[id="optionRoleSelect651"]',
 
      //Bulk Password Reset Buttons
      resetPassword1: 'Reset Password',
