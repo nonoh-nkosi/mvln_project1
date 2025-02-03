@@ -43,16 +43,13 @@ export const userManagement = {
    reactivateCheckbox: 'label[for="customCheckbox0"].styledCheckbox',
    activateAccount1: 'Activate',
            //or
-   activateAccount2: '[id="ReActivateButton"]',
-           
+   activateAccount2: '[id="ReActivateButton"]',    
    //Button
    activateCode: 'button.btn.btn-secondary',
    reactivateButton: 'Confirm Activation',
-
    //Notifications
    activationNotification: '[id="emailNotification"]',
    alreadyActiveNotification: '[id="successModal"]',
-
    //Messages
    activationMessage: 'Status for the users was successfully updated to Active',
    deactivationMessage: 'User Deactivated successfully',
@@ -86,25 +83,25 @@ export const userManagement = {
    departmentField: '[id="department"]',
    role:  '[id="role"]',
 
- //Edit User Fields
- name: '[id="name_647"]',
- surname: '[id="surname_647"]',
- editEmail: '[id="email_647"]',
- phone: '[id="phone_647"]',
- department: '[id="department_647"]',
- editRole:  '[id="role_647"]',
- email: '[id="email_647"]',
- validateNameError: '.errorDiv',
- validateSurnameError: '.errorDiv',
- validateEmailError: '.errorDiv',
- validateDepartmentError: '.errorDiv',
- validatePhoneError: '.errorDiv',
+   //Edit User Fields
+   name: '[id="name_647"]',
+   surname: '[id="surname_647"]',
+   editEmail: '[id="email_647"]',
+   phone: '[id="phone_647"]',
+   department: '[id="department_647"]',
+   editRole:  '[id="role_647"]',
+   email: '[id="email_647"]',
+   validateNameError: '.errorDiv',
+   validateSurnameError: '.errorDiv',
+   validateEmailError: '.errorDiv',
+   validateDepartmentError: '.errorDiv',
+   validatePhoneError: '.errorDiv',
 
-     //Bulk Edit User Account
-     editUserRole: '[id="newRoleButton"]',
-     confirmRoleHeading: '[id="confirmModalLabel"]',
-     aliceRoleDropdown: '[id="optionRoleSelect652"]',
-     testingRoleDropdown: '[id="optionRoleSelect651"]',
+   //Bulk Edit User Account
+   editUserRole: '[id="newRoleButton"]',
+   confirmRoleHeading: '[id="confirmModalLabel"]',
+   aliceRoleDropdown: '[id="optionRoleSelect652"]',
+   testingRoleDropdown: '[id="optionRoleSelect651"]',
 
    //Bulk Password Reset Buttons
    resetPassword1: 'Reset Password',
@@ -144,5 +141,5 @@ export const userManagement = {
    userElement: '#fullNameTable_647',
    report: 'a[href="/Reports/reports.php"]',
    menu: '[id="menuText"]',
-   
+  
 }
