@@ -45,10 +45,13 @@ test('Verify the Existence and Accessibility of User Account History Section', a
     await expect(log).toBeVisible();
     
     // //Verify Accuracy of Timestamps in User Account History
-    const timeStamps = String(log.locator(userManagement.timeStamp).allTextContents());
+    const timeStamps = await log.locator(userManagement.timeStamp).allTextContents();
 
-    //Checking if the dates are the same
-    const result = isEqual(systemTime, timeStamps);
+     //Checking if the dates are the same
+     //Converting the date so only the date showss
+    const timestampWithoutBracketsandTime = timeStamps.join(",").slice(1, 11)//The value will be today's date
+    const systemTimeWithoutTime = systemTime.slice(0, 10)// The value will be today'date 
+    const result = isEqual(systemTimeWithoutTime, timestampWithoutBracketsandTime)
     await expect(result).toBeTruthy();
 
     const changes = await log.locator(userManagement.accountChanges);
