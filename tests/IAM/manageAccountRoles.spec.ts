@@ -38,10 +38,12 @@ test('Access Control for Account Roles Page', async ({ page }) => {
     const userAccess = await page.getByText(userManagement.heading)
     await expect(userAccess).toBeVisible();
 
-       await page.locator(userManagement.fillCheckbox).click();
-        await page.click(userManagement.bulkAction);
+    await page.locator(userManagement.fillCheckbox).click();
+    await page.click(userManagement.bulkAction);
         
-        await page.locator(userManagement.bulkDropdown).getByText(userManagement.updateUserRole).click();
+    await page.locator(userManagement.bulkDropdown).getByText(userManagement.updateUserRole).click();
+
+    await page.locator(userManagement.bulkConfirm).click();
 });
 
 test('View Account Roles and Permissions', async ({ page }) => {
@@ -67,7 +69,7 @@ test('Access to the User Management page should be restricted to authenticated C
     await expect(userManagementLink).toBeVisible();
     await expect(userManagementLink).toBeEnabled(); 
 
-    await page.getByText(userManagement.heading).click();
+    await page.getByText(userManagement.userInformation).click();
 });
 
 test.afterEach( async ({ page }) => {

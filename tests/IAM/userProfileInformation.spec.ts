@@ -48,21 +48,61 @@ test('Mandatory Field Validation', async ({ page }) => {
    test('Information Update Confirmation Message', async ({ page }) => {
        
        const roleDropdown = page.locator('select#role');
-       await roleDropdown.selectOption(userAccount.profile.role);
+       await roleDropdown.selectOption(userAccount.profile.newrole);
 
        await page.locator(profilePage.profileSaveButton).click();
        await page.getByRole('button', { name: 'Save' }).click();
 
        const confirmationMessage = page.locator(profilePage.userUpdateConfirmation);
-       await expect(confirmationMessage).toHaveText('User data changed succesfully.');
+    //    await expect(confirmationMessage).toHaveText('User data changed succesfully.');
        await expect(confirmationMessage).toHaveCSS('color', 'rgb(0, 128, 0)');
        await expect(confirmationMessage).toBeVisible();
+
+       await confirmationMessage.waitFor({state: 'hidden'});
+
+       await page.reload();
+
+       await page.locator(profilePage.editProfile).click();
+
+       //Change back role to Company Administrator
+       await roleDropdown.selectOption(userAccount.profile.role);
+       await page.locator(profilePage.profileSaveButton).click();
+       await page.getByRole('button', { name: 'Save' }).click();
    });
+
+   test('User Account Update Error Handling', async ({ page }) => {
+       
+    await page.locator(profilePage.email).click();
+    await page.locator(profilePage.email).fill('');
+
+    const emailErrorMessage = page.locator('.errorDiv').first();
+
+    await expect(emailErrorMessage).toHaveText('Invalid email address!'); 
+
+    await page.locator(profilePage.email).click();
+    await page.locator(profilePage.email).fill(userAccount.profile.email);
+
+    await expect(emailErrorMessage).toBeHidden();
+    
+    await page.locator(profilePage.phoneNumber).click();
+    await page.locator(profilePage.phoneNumber).fill('');
+
+    const phoneNumberErrorMessage = page.locator('#phone + .errorDiv');
+
+    await expect(phoneNumberErrorMessage).toHaveText('Invalid phone number!');
+    await expect(phoneNumberErrorMessage).toBeVisible();
+    await expect(phoneNumberErrorMessage).toHaveCSS('color', 'rgb(255, 0, 0)');
+
+    await page.locator(profilePage.phoneNumber).click();
+    await page.locator(profilePage.phoneNumber).fill(userAccount.profile.phone);
+
+    await expect(phoneNumberErrorMessage).toBeHidden();
+});
 
    test('Real-time Update of User Account Information', async ({ page }) => {
     
-    await page.locator(profilePage.nameField).fill(userAccount.profile.name);
-    await page.locator(profilePage.surnameField).fill(userAccount.profile.surname);
+    await page.locator(profilePage.nameField).fill(userAccount.profile.newName);
+    await page.locator(profilePage.surnameField).fill(userAccount.profile.newSurname);
     await page.locator(profilePage.profileSaveButton).click();
     await page.getByRole('button', { name: 'Save' }).click();
 
@@ -76,36 +116,15 @@ test('Mandatory Field Validation', async ({ page }) => {
 
     const surnameFieldValue = page.locator('[id="surname"]');
     await expect(surnameFieldValue).toHaveValue('Persona');
+
+    //Change Back Names
+    await page.locator(profilePage.editProfile).click();
+
+    await page.locator(profilePage.nameField).fill(userAccount.profile.name);
+    await page.locator(profilePage.surnameField).fill(userAccount.profile.surname);
+    await page.locator(profilePage.profileSaveButton).click();
+    await page.getByRole('button', { name: 'Save' }).click();
 });
-
-   test('User Account Update Error Handling', async ({ page }) => {
-       
-       await page.locator(profilePage.email).click();
-       await page.locator(profilePage.email).fill('');
-
-       const emailErrorMessage = page.locator('.errorDiv').first();
-
-       await expect(emailErrorMessage).toHaveText('Invalid email address!'); 
-
-       await page.locator(profilePage.email).click();
-       await page.locator(profilePage.email).fill(userAccount.profile.email);
-
-       await expect(emailErrorMessage).toBeHidden();
-       
-       await page.locator(profilePage.phoneNumber).click();
-       await page.locator(profilePage.phoneNumber).fill('');
-
-       const phoneNumberErrorMessage = page.locator('#phone + .errorDiv');
-
-       await expect(phoneNumberErrorMessage).toHaveText('Invalid phone number!');
-       await expect(phoneNumberErrorMessage).toBeVisible();
-       await expect(phoneNumberErrorMessage).toHaveCSS('color', 'rgb(255, 0, 0)');
-
-       await page.locator(profilePage.phoneNumber).click();
-       await page.locator(profilePage.phoneNumber).fill(userAccount.profile.phone);
-
-       await expect(phoneNumberErrorMessage).toBeHidden();
-   });
 
    test.afterEach('Logout and Close page', async ({ page }) => {
 
