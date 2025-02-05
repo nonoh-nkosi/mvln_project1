@@ -1,5 +1,3 @@
-//This file contains the History Section test file
-
 import { expect, test } from "playwright/test";
 import { login } from "../helpers.ts/login";
 import { formatISO9075, isEqual } from "date-fns";
@@ -47,12 +45,20 @@ test('Verify the Existence and Accessibility of User Account History Section', a
     // //Verify Accuracy of Timestamps in User Account History
     const timeStamps = await log.locator(userManagement.timeStamp).allTextContents();
 
-     //Checking if the dates are the same
-     //Converting the date so only the date showss
+    //Temporary solution
+    //Checking if the dates are the same
+    //Converting the date so only the date shows
     const timestampWithoutBracketsandTime = timeStamps.join(",").slice(1, 11)//The value will be today's date
     const systemTimeWithoutTime = systemTime.slice(0, 10)// The value will be today'date 
     const result = isEqual(systemTimeWithoutTime, timestampWithoutBracketsandTime)
     await expect(result).toBeTruthy();
+
+    //Permanent solution
+    //There is a 2 hour time difference between the system time and the timestamp
+    // const timestampValue= timeStamps.join(",").slice(1, 20);
+    // const systemTimeValue= systemTime.slice(0, 19)
+    // const result = isEqual(systemTimeValue, timestampValue)
+    // await expect(result).toBeTruthy();
 
     const changes = await log.locator(userManagement.accountChanges);
     await expect(changes).toBeVisible();
