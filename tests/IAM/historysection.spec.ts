@@ -49,7 +49,7 @@ test('Verify the Existence and Accessibility of User Account History Section', a
     //Checking if the dates are the same
     //Converting the date so only the date shows
     const timestampWithoutBracketsandTime = timeStamps.join(",").slice(1, 11)//The value will be today's date
-    const systemTimeWithoutTime = systemTime.slice(0, 10)// The value will be today'date 
+    const systemTimeWithoutTime = systemTime.slice(0, 10)// The value will be today's date 
     const result = isEqual(systemTimeWithoutTime, timestampWithoutBracketsandTime)
     await expect(result).toBeTruthy();
 
