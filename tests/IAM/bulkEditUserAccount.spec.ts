@@ -1,5 +1,3 @@
-//This file contains the bulk Edit User Account test file
-
 import { expect, test } from "playwright/test";
 import { login } from "../helpers.ts/login";
 import { userManagement } from "../helpers.ts/userManagementLocators";

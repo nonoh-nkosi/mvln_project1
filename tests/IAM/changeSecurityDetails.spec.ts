@@ -23,8 +23,8 @@ test.beforeEach(async ({ page }) => {
 
     await page.getByText(SecurityPage.userSubMenu).hover();
 
- await page.locator(SecurityPage.securityTab).click();//During execution, the security tab is sometimes not clickable
-//Click on security tab again 
+    await page.locator(SecurityPage.securityTab).click();//During execution, the security tab is sometimes not clickable
+    //Click on security tab again 
     await page.locator(SecurityPage.securityTab).click();
 
     const securityHeading = await page.locator(SecurityPage.securityHeading);

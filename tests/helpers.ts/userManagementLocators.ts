@@ -71,7 +71,7 @@ export const userManagement = {
 
    //Deactivate User Account
    bulkDeactivateButton: '[id="deactivateButton"]',
-   confirmDeactivation: '#confirmDeactivation',
+   confirmDeactivation: 'role=button[name="Yes"]',
    deactivateStatus: 'span:has-text("Inactive")',
    bandileAccount: 'span.t-select-btn',
     
