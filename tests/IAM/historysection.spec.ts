@@ -42,7 +42,7 @@ test('Verify the Existence and Accessibility of User Account History Section', a
     const log = await page.locator(userManagement.historyLog).first()
     await expect(log).toBeVisible();
     
-    // //Verify Accuracy of Timestamps in User Account History
+    //Verify Accuracy of Timestamps in User Account History
     const timeStamps = await log.locator(userManagement.timeStamp).allTextContents();
 
     //Temporary solution
