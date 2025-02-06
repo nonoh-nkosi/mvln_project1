@@ -112,19 +112,28 @@ export const userManagement = {
    bulkResetPassword: 'text=User Password Update is sent successfully',
    successNotification: '[id="successModal"]',
 
-   //Filter Options
-   //Filters
-   userDropdown: '#user-dropdown',
-   roleDropdown: '#role-dropdown',
-   //User Dropdown boxes
-   changeRoleDropdown: '.form-select changeRole',
-   testRole1Dropdown: '[id="optionRoleSelect646"]',
-   testRole2Dropdown: '[id="optionRoleSelect648"]',
-   //Users Filter Ids
-   userFilter1: '[id="fullNameTable_646"]',
-   userFilter2: '[id="fullNameTable_649"]',
-   //testRole1 Email Value
-   emailValue: '[id="emailTable_646"]',
+//Filter Options
+//Filters
+userDropdown: '#user-dropdown',
+roleDropdown: '#role-dropdown',
+//User Dropdown boxes
+changeRoleDropdown: '.form-select changeRole',
+testRole1Dropdown: '[id="optionRoleSelect646"]',
+testRole2Dropdown: '[id="optionRoleSelect648"]',
+//Users Filter Ids
+userFilter1: '[id="fullNameTable_646"]',
+userFilter2: '[id="fullNameTable_649"]',
+//testRole1 Email Value
+emailValue: '[id="emailTable_646"]',
+
+//History Section
+historyButton: 'History',
+closeHistorySection: '#userRoleHistoryModal i',
+changeUserInfo: '[id="optionRoleSelect651"]',
+historyLog: 'li.historyData',
+timeStamp: 'span.dateStamp',
+accountChanges: 'span.taskText',
+accountName: 'span.userName',
 
    //Error message
    emailErrorMessage: 'Invalid email address!',
