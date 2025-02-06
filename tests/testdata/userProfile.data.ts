@@ -3,11 +3,14 @@
 export const userAccount = {
    
     profile: {
-        name: 'Bandilee',
-        surname: 'Persona',
+        newName: 'Bandilee',
+        name: 'Bandile',
+        newSurname: 'Persona',
+        surname: 'Personal',
         email:'bandilendlela@gmail.com',
         phone: '1234567891',
-        role: 'Sales Manager',
+        newrole: 'Sales Manager',
+        role: 'Executive / Company Administrator',
         department: 'Testing',
     },   
 }
