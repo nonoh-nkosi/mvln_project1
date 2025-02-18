@@ -15,7 +15,7 @@ export const userManagement = {
    saveButton: 'button:has-text("Save")',
    confirmButton: 'button.editConfirmation',
    signOut: 'span.d-sm-inline',
-   mainPageRole: '[id="optionRoleSelect646"]',
+   mainPageRole: '[id="optionRoleSelect647"]',
    confirmBtn: 'button:has-text("Confirm")',
      
    //Checkboxes
@@ -32,9 +32,8 @@ export const userManagement = {
    updateUserRole: 'Update User Roles',
    bulkActionSelect: '[id="BulkOptionRoleSelect"]',
    bulkConfirm: '[id="bulkRoleSave"]',
-   userSelectRole: '[id="optionRoleSelect648"]',
+   userSelectRole: '[id="optionRoleSelect647"]',
    //Buttons
-   confirmRole: '[id="confirmRoleBtn"]',
    cancel: '.btn btn-secondary',
    //Confirmation Message
    resetConfirm: 'Bulk User Roles updated successfully',
@@ -119,9 +118,9 @@ roleDropdown: '#role-dropdown',
 //User Dropdown boxes
 changeRoleDropdown: '.form-select changeRole',
 testRole1Dropdown: '[id="optionRoleSelect646"]',
-testRole2Dropdown: '[id="optionRoleSelect648"]',
+testRole2Dropdown: '[id="optionRoleSelect652"]',
 //Users Filter Ids
-userFilter1: '[id="fullNameTable_646"]',
+userFilter1: '[id="fullNameTable_648"]',
 userFilter2: '[id="fullNameTable_649"]',
 //testRole1 Email Value
 emailValue: '[id="emailTable_646"]',

@@ -20,7 +20,7 @@ test('Bulk Reactivation of User Accounts - User Selection', async({ page }) => {
 
     // Access Control for Bulk User Account Reactivation
     
-    await page.getByText("User Management").click();
+    await userManagementLink.click();
     
     const heading = await page.getByText(userManagement.heading);
     await expect(heading).toBeVisible();

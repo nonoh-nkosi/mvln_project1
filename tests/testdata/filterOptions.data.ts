@@ -4,8 +4,8 @@ export const filter ={
     user: {
         0: 'Filter Users',
         1: 'Show All',
-        2: 'Bandile Personal',
-        3: 'Will parker',
+        2: 'Will parker',
+        3: 'Alice Brooks',
         4: 'Fill Bugg',
     },
 

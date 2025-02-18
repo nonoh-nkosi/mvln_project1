@@ -30,7 +30,8 @@ test('Verify the Existence and Accessibility of User Account History Section', a
 
     //Page reloads after role has been changed
     //Account Management Page content sometimes is not visible which leads to the test failing
-    await page.click(userManagement.confirmRole);
+    const confirmButton = await page.getByRole('button').filter({ hasText: 'Confirm' });
+    await confirmButton.click();
 
     //Verify Seamless Navigation to User Account History Section
     await historySection.click();

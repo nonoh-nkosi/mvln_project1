@@ -38,7 +38,12 @@ test.beforeEach(async ({ page }) => {
     const dropDown = page.locator(userManagement.userSelectRole);
     await dropDown.selectOption(singleRole.dropDownRole2)
 
-    await page.locator(userManagement.confirmRole).click();
+    const confirmButton = await page.getByRole('button').filter({ hasText: 'Confirm' });
+    await confirmButton.click();
+
+    const notification = await page.locator(userManagement.successNotification);
+
+    await notification.waitFor({ state: 'hidden'});
 
     const menu = await page.locator(userManagement.menu);
     await menu.click();
@@ -48,7 +53,10 @@ test.beforeEach(async ({ page }) => {
 
     const isDisabled = await userManagementLink.isDisabled();
     await expect(isDisabled).toBe(true);
+    
   });
+
+  //Revert role back to company Admin
 
   test('Verify Edit Account Role and Confirm Account Role Assignment', async ({ page }) => {
 
@@ -72,7 +80,8 @@ test.beforeEach(async ({ page }) => {
     const dropDown = page.locator(userManagement.userSelectRole);
     await dropDown.selectOption(singleRole.dropDownRole)
 
-    await page.locator(userManagement.confirmRole).click();
+    const confirmButton = await page.getByRole('button').filter({ hasText: 'Confirm' });
+    await confirmButton.click();
 
     //Confirmation message not appearing - related to bug DN-147
 

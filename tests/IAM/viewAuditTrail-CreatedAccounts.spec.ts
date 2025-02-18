@@ -2,6 +2,7 @@ import { expect, test } from "playwright/test";
 import { login } from "../helpers.ts/login";
 import { audit } from "../helpers.ts/auditTrailLocators";
 import { dashBoardPage } from "../helpers.ts/dashboardpageLocators";
+import { trail } from "../testdata/auditTrail.data";
 
 test.beforeEach(async ({ page }) => {
 
@@ -26,8 +27,13 @@ test('View Audit Trail for Created User Accounts', async ({ page }) => {
     await page.locator('a', { hasText: audit.auditTrailTab }).click();
 
     //Checks if the Audit Trail Page contents are visible
-    const table = await page.locator(audit.auditTrailPage);
+    const table = await page.getByRole('table').locator(audit.auditTrailPage);
     await expect(table).toBeVisible();
+
+    const search = await page.locator(audit.searchBar);
+    await search.fill(trail.createdAccounts);
+
+    await expect(table).toContainText(trail.createdAccounts);
 });
 
 test.afterEach(async ({ page }) => {

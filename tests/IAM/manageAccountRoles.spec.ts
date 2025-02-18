@@ -69,7 +69,7 @@ test('Access to the User Management page should be restricted to authenticated C
     await expect(userManagementLink).toBeVisible();
     await expect(userManagementLink).toBeEnabled(); 
 
-    await page.getByText(userManagement.userInformation).click();
+    await userManagementLink.click();
 });
 
 test.afterEach( async ({ page }) => {

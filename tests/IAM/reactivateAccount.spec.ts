@@ -29,23 +29,26 @@ test('Verify User Account Reactivation Process', async ({ page }) => {
     await page.locator(userManagement.reactivateCheckbox).click();
     await page.click(userManagement.bulkAction);
 
-    await page.locator(userManagement.activateAccount2).click();
+    const activateButton = await page.getByText(userManagement.activateAccount1)
+    await activateButton.click();
+    // await page.locator(userManagement.activateAccount2).click();
 
     await page.getByText(userManagement.reactivateButton).click();
 
     // //Dn-124: Verify Confirmation Prompt for User Account Reactivation
-    const confimation = await page.locator(userManagement.activationNotification);
-    await expect(confimation).toContainText(userManagement.activationMessage);
-    await expect(confimation).toBeVisible();
+    const confirmation = await page.locator(userManagement.activationNotification);
+    await expect(confirmation).toContainText(userManagement.activationMessage);
+    await expect(confirmation).toBeVisible();
 
-    await page.waitForSelector( userManagement.activationMessage, { state: 'hidden' });
+    await confirmation.waitFor({state: 'hidden'});
 
     //DN-126: Verify Graceful Handling of Reactivation Errors
     await page.locator(userManagement.reactivateCheckbox).click();
     await page.click(userManagement.bulkAction);
 
     //During execution, the website tends to not fully load, it scrolls up and down before clicking on bulk dropdown which also does not fully load or appear.
-    await page.locator(userManagement.activateAccount2).click();
+    await activateButton.click();
+    // await page.locator(userManagement.activateAccount2).click();
 
     await page.getByText(userManagement.reactivateButton).click();
 

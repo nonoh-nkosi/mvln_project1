@@ -36,7 +36,8 @@ test.beforeEach(async ({ page }) => {
     const dropDown = page.locator(userManagement.userSelectRole);
     await dropDown.selectOption(singleRole.dropDownRole)
 
-    await page.locator(userManagement.confirmRole).click();
+    const confirmButton = await page.getByRole('button').filter({ hasText: 'Confirm' });
+    await confirmButton.click();
   });
 
   
@@ -63,11 +64,12 @@ test.beforeEach(async ({ page }) => {
     const dropDown = page.locator(userManagement.userSelectRole);
     await dropDown.selectOption(singleRole.dropDownRole)
 
-    await page.locator(userManagement.confirmRole).click();
-
-    await expect(dropDown).toHaveValue(singleRole.dropDownRole);
+    const confirmButton = await page.getByRole('button').filter({ hasText: 'Confirm' });
+    await confirmButton.click();
 
     //A confirmation message is supposed to appear when the role is changed, this is related to DN-147.
+
+    await expect(dropDown).toHaveValue(singleRole.dropDownRole);
   });
 
   test('Handle Assignment Errors Gracefully', async ({ page }) => {

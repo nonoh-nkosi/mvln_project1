@@ -101,7 +101,7 @@ test('Simultaneous Application of Multiple Filters on User Management Page', asy
     // const role = await page.locator(userManagement.changeRoleDropdown).allTextContents();
     // await expect(role).toBe(filter.role[2]);
 
-    //Alternative, checking test account role
+    //Alternative, checking account role
     const firstOption = await page.locator(userManagement.testRole2Dropdown);
     await expect(firstOption).toHaveValue(filter.role[3]);
 

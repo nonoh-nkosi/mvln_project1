@@ -8,4 +8,6 @@ export const audit = {
     companyDetailsTab: 'Company Details',
 
     auditTrailPage: '[id="auditTrail"]',
+
+    searchBar: '[id="customSearchAuditTrail"]',
 }

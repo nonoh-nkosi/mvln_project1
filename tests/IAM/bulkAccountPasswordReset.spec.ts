@@ -46,7 +46,7 @@ test('Successful Reset', async ({ page }) => {
     await page.getByLabel(userManagement.userPasswordReset).getByText(userManagement.confirmReset1).click();
 
     //Confirmation Prompt
-    const resetPasswordMessage = await page.locator(userManagement.successNotification);
+    const resetPasswordMessage = await page.getByText(userManagement.bulkResetPassword)
     await expect(resetPasswordMessage).toBeVisible();
     await expect(resetPasswordMessage).toHaveCSS( 'color', 'rgb(0, 128, 0)');
     await expect(resetPasswordMessage).toHaveText(userManagement.bulkResetPassword);
