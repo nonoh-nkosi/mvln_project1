@@ -34,12 +34,10 @@ await deactivateButtons.click();
 const confirmButton = page.locator(userManagement.confirmDeactivation);
 await confirmButton.waitFor({ state: 'visible' }); 
 //If confirm button is clicked Bandile's account will be deacticated
-//await confirmButton.click(); 
+await confirmButton.click(); 
 
-//confirm message is sometimes not recognized
-/*const confirmDeactivation = page.locator(''p', { hasText: 'Are you sure you want to activate this user?' }');
+const confirmDeactivation = page.locator('p:has-text("Are you sure you want to deactivate this user?")');
 await expect(confirmDeactivation).toHaveText('Are you sure you want to deactivate this user?');
-await expect(confirmDeactivation).toBeVisible();*/
 
 const deactivateStatus = page.locator(userManagement.deactivateStatus);
 await expect(deactivateStatus).toHaveText('Inactive'); 
@@ -55,11 +53,28 @@ const lockedAccountError = await page.locator(signInPage.lockedAccountError);
 await expect(lockedAccountError).toContainText(signInPage.lockedAccountMessage);
 await expect(lockedAccountError).toBeVisible();
 
-});
+await page.goto('http://10.10.10.118/Login%20Pages/sign-in.php');
+await page.fill('[id="email"]', 'bandile@whakindatec.com'); 
+await page.fill('[id="password"]', 'DocuNation@135'); 
+await page.click(signInPage.loginButton);
 
-test.afterEach( async ({ page }) => {
-await page.locator(dashBoardPage.signOut).click();
-await page.close();
+const menu = await page.locator(userManagement.menu);
+await menu.click();
+
+const reportsLink = page.locator(userManagement.report);
+await reportsLink.click();
+
+await menu.click();
+
+const userManagementLink = await page.locator(userManagement.userManagement);
+await userManagementLink.click();
+
+await selectButton.click();
+
+await page.click('a[data-id="646"][class="actionButton"]');
+
+await page.click('#confirmActivation');
+
 });
 });
 
