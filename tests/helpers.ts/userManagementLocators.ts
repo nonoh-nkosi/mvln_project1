@@ -108,7 +108,7 @@ export const userManagement = {
    confirmReset1: 'Send Reset',
    passwordResetBtn: '[id="passwordResetButton"]',
    //Messages
-   bulkResetPassword: 'text=User Password Update is sent successfully',
+   bulkResetPassword: 'User Password Update is successfully sent',
    successNotification: '[id="successModal"]',
 
 //Filter Options
