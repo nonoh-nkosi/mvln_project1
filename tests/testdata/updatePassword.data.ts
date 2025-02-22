@@ -1,34 +1,35 @@
 //This file contains the test data for the change Security Details test file
+import { config } from "../helpers.ts/config"
 
 export const updatePassword = {
     valid: {
-        currentPassword: 'DocuNation@1355',
-        newPassword: 'DocuNation@131',
-        confirmPassword: 'DocuNation1@131',
+        currentPassword: config.credentials.password,
+        newPassword: 'DocuNation@13526',
+        confirmPassword: 'DocuNation@13526',
     }, 
     
     invalid: {
-        currentPassword: 'DocuNation@1355',
+        currentPassword: config.credentials.password,
         newPassword: 'DocuNation@1351',
         confirmPassword: 'DocuNation@135',
     },
 
     weakPassword: {
-        currentPassword: 'DocuNation@1355',
+        currentPassword: config.credentials.password,
         newPassword: 'Docunation',
         confirmPassword: 'Docunation',
     },
 
     strongPassword: {
-        currentPassword: 'DocuNation@1355',
+        currentPassword: config.credentials.password,
         newPassword: 'DocuNation@1351',
         confirmPassword: 'DocuNation@1351',
 
     },
 
     noChangesPassword: {
-        currentPassword: 'DocuNation@1355',
-        newPassword: 'DocuNation@1355',
-        confirmPassword: 'DocuNation@1355',
+        currentPassword: config.credentials.password,
+        newPassword: config.credentials.password,
+        confirmPassword: config.credentials.password,
     }
 }
