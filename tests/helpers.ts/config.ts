@@ -3,7 +3,7 @@
 export const config = {
     credentials: {
         email: 'bandilendlela@gmail.com',
-        password: 'DocuNation@1355',
+        password: 'DocuNation@13525',
     },
     urls: {
         login: 'http://10.10.10.118/Login%20Pages/sign-in.php',

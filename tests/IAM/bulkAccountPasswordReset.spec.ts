@@ -38,18 +38,22 @@ test('Successful Reset', async ({ page }) => {
         await page.click(userManagement.checkBox2);//Click on the second user's checkbox
         await page.click(userManagement.checkBox3);//Click on the third user's checkbox
 
-        await page.click(userManagement.bulkAction);//Click on the Bulk Action button
+        await page.getByPlaceholder('Bulk Action');
+        const bulkDropdown = await page.locator(userManagement.bulkAction).first();
+        await bulkDropdown.click();//Click on the Bulk Action button
 
-    await page.locator(userManagement.passwordResetBtn).getByText(userManagement.resetPassword1).click();
-
-    //The button is sometimes unclickable and user should click on it multiple times
-    await page.getByLabel(userManagement.userPasswordReset).getByText(userManagement.confirmReset1).click();
-
-    //Confirmation Prompt
-    const resetPasswordMessage = await page.getByText(userManagement.bulkResetPassword)
-    await expect(resetPasswordMessage).toBeVisible();
-    await expect(resetPasswordMessage).toHaveCSS( 'color', 'rgb(0, 128, 0)');
-    await expect(resetPasswordMessage).toHaveText(userManagement.bulkResetPassword);
+        const button = await page.locator(userManagement.passwordResetBtn);
+        await button.getByText(userManagement.resetPassword1).click();
+        
+        //The button is sometimes unclickable and user should click on it multiple times
+        await page.getByLabel(userManagement.userPasswordReset).getByText(userManagement.confirmReset1).click();
+        
+        //Confirmation Prompt
+        const success = await page.locator(userManagement.successNotification).first();
+        const resetPasswordMessage = await page.getByText(userManagement.bulkResetPassword)
+        await expect(resetPasswordMessage).toBeVisible();
+        await expect(resetPasswordMessage).toHaveCSS( 'color', 'rgb(0, 128, 0)');
+        await expect(resetPasswordMessage).toHaveText(userManagement.bulkResetPassword);
 });
 
 test.afterEach( async ({ page }) => {
