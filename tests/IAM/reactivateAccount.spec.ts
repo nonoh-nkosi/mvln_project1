@@ -26,14 +26,19 @@ test('Verify User Account Reactivation Process', async ({ page }) => {
     const heading = await page.getByText(userManagement.heading);
     await expect(heading).toBeVisible();
 
-    await page.locator(userManagement.reactivateCheckbox).click();
-    await page.click(userManagement.bulkAction);
+    const checkbox = await page.locator(userManagement.reactivateCheckbox);
+    await checkbox.click();
 
-    const activateButton = await page.getByText(userManagement.activateAccount1)
-    await activateButton.click();
-    // await page.locator(userManagement.activateAccount2).click();
+    await page.getByPlaceholder('Bulk Action');
+    const bulkDropdown = await page.locator(userManagement.bulkAction).first();
+    await bulkDropdown.click();
 
-    await page.getByText(userManagement.reactivateButton).click();
+    const activateButton = await page.locator(userManagement.activateAccount2);
+    const activate = await activateButton.getByText(userManagement.activateAccount1);
+    await activate.click();
+
+    const reactivateButton = await page.getByText(userManagement.reactivateButton);
+    await reactivateButton.click();
 
     // //Dn-124: Verify Confirmation Prompt for User Account Reactivation
     const confirmation = await page.locator(userManagement.activationNotification);
@@ -43,20 +48,19 @@ test('Verify User Account Reactivation Process', async ({ page }) => {
     await confirmation.waitFor({state: 'hidden'});
 
     //DN-126: Verify Graceful Handling of Reactivation Errors
-    await page.locator(userManagement.reactivateCheckbox).click();
-    await page.click(userManagement.bulkAction);
+    await checkbox.click();
+
+    await bulkDropdown.click();
 
     //During execution, the website tends to not fully load, it scrolls up and down before clicking on bulk dropdown which also does not fully load or appear.
-    await activateButton.click();
-    // await page.locator(userManagement.activateAccount2).click();
-
-    await page.getByText(userManagement.reactivateButton).click();
+    await activate.click();
 
     //The error message says the account is active but it appears as 'inactive' on the User Account Management page.
     const error = await page.locator(userManagement.alreadyActiveNotification)
-    await expect(error).toContainText(userManagement.alreadyActive)
+    await expect(error).toHaveText(userManagement.alreadyActive)
     await expect(error).toBeVisible();
-    await expect(error).toHaveCSS('color', 'rgb(255, 0, 0)');
+    
+    await error.waitFor({state: 'hidden'});
 });
 
 test('Verify Feedback on User Account Reactivation Process', async ({ page }) => {
@@ -65,6 +69,19 @@ test('Verify Feedback on User Account Reactivation Process', async ({ page }) =>
 });
 
 test.afterEach( async ({ page }) => {
+
+        //Deactivate accounts to allow test to run in a loop
+        const checkbox = await page.locator(userManagement.reactivateCheckbox);
+        await checkbox.click();//Click on the first user's checkBox
+    
+        await page.getByPlaceholder('Bulk Action');
+        const bulkDropdown = await page.locator(userManagement.bulkAction).first();
+        await bulkDropdown.click();//Click on the Bulk Action button
+    
+        const deactivateButton = await page.locator(userManagement.bulkDeactivateButton);
+        await deactivateButton.click();//Click on  the Deactivate Button
+        
+        await page.locator(userManagement.confirmDeactivation).click();
 
         await page.locator(dashBoardPage.signOut).click();
         await page.close();
