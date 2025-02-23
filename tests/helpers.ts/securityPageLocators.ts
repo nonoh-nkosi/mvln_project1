@@ -4,10 +4,10 @@ export const SecurityPage = {
 
         //Tabs
         userSubMenu: 'Account',
-        securityTab: 'li:has-text("Security")',
+        securityTab: 'Security',
 
         //Headings
-        securityHeading: 'h2:has-text("Security")',
+        securityHeading: 'Security',
         updatePasswordHeading: 'h2:has-text("Update Password")',
         userSetting: 'h2:has-text("User Settings")',
 
@@ -29,5 +29,5 @@ export const SecurityPage = {
         newPasswordError: '[id="newPasswordError"]',
 
         // Confirmation Message
-        successMessage: '[id="modal_border"]'
+        successMessage: '[id="modal_border"]',
 }

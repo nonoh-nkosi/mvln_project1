@@ -23,12 +23,12 @@ test.beforeEach(async ({ page }) => {
 
     await page.getByText(SecurityPage.userSubMenu).hover();
 
-    await page.locator(SecurityPage.securityTab).click();//During execution, the security tab is sometimes not clickable
+    await page.getByText(SecurityPage.securityTab).click();//During execution, the security tab is sometimes not clickable
     //Click on security tab again 
-    await page.locator(SecurityPage.securityTab).click();
-
-    const securityHeading = await page.locator(SecurityPage.securityHeading);
-    await expect(securityHeading).toBeVisible();
+    await page.getByText(SecurityPage.securityTab).click();
+    
+     const heading = await page.getByRole('heading', { name: 'Security' });
+     await expect(heading).toBeVisible();
   });
 
   //Automated Tests
@@ -43,32 +43,11 @@ test.beforeEach(async ({ page }) => {
     await page.locator(SecurityPage.securitySaveButton).click();
     await page.getByRole('button', {name: 'Save' }).click();
 
-    const confirmationMessage = page.locator(SecurityPage.successMessage);
+    const confirmationMessage = await page.getByText('User password updated successfully')
     await expect(confirmationMessage).toBeVisible();
-    await expect(confirmationMessage).toHaveText('User password updated successfully');
     await expect(confirmationMessage).toHaveCSS('color', 'rgb(0, 128, 0)');
 
     await confirmationMessage.waitFor( {state: 'hidden'});
-
-        //Change Back to original password
-    await page.locator(SecurityPage.currentPassword).fill(config.credentials.password);
-
-    await page.locator(SecurityPage.newPassword).fill(config.credentials.password);
-    await page.locator(SecurityPage.confirmPassword).fill(config.credentials.password);
-
-    //Save the password
-    await page.locator(SecurityPage.securitySaveButton).click();
-    await page.getByRole('button', {name: 'Save' }).click();
-
-        //Change Back to original password
-        await page.locator(SecurityPage.currentPassword).fill(config.credentials.password);
-
-        await page.locator(SecurityPage.newPassword).fill(config.credentials.password);
-        await page.locator(SecurityPage.confirmPassword).fill(config.credentials.password);
-    
-        //Save the password
-        await page.locator(SecurityPage.securitySaveButton).click();
-        await page.getByRole('button', {name: 'Save' }).click();
   });
 
   test('Password Complexity in User Profile Password Reset', async ({ page }) => {
@@ -102,16 +81,6 @@ test.beforeEach(async ({ page }) => {
     await expect(confirmationMessage).toHaveCSS('color', 'rgb(0, 128, 0)');
 
     await confirmationMessage.waitFor( {state: 'hidden'});
-
-        //Change Back to original password
-        await page.locator(SecurityPage.currentPassword).fill(config.credentials.password);
-
-        await page.locator(SecurityPage.newPassword).fill(config.credentials.password);
-        await page.locator(SecurityPage.confirmPassword).fill(config.credentials.password);
-    
-        //Save the password
-        await page.locator(SecurityPage.securitySaveButton).click();
-        await page.getByRole('button', {name: 'Save' }).click();
   });
 
   test('Password Reset Guidance in User Profile', async ({ page }) => {
@@ -148,16 +117,6 @@ test.beforeEach(async ({ page }) => {
     await expect(confirmationMessage).toHaveCSS('color', 'rgb(0, 128, 0)');
 
     await confirmationMessage.waitFor( {state: 'hidden'});
-
-        //Change Back to original password
-        await page.locator(SecurityPage.currentPassword).fill(config.credentials.password);
-
-        await page.locator(SecurityPage.newPassword).fill(config.credentials.password);
-        await page.locator(SecurityPage.confirmPassword).fill(config.credentials.password);
-    
-        //Save the password
-        await page.locator(SecurityPage.securitySaveButton).click();
-        await page.getByRole('button', {name: 'Save' }).click();
   });
 
   test('Password Reset Error Handling', async ({ page }) => {
