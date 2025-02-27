@@ -67,10 +67,12 @@ export const userManagement = {
    //Bulk Deactivate User Account
    deactivateCheckbox: 'label[for="customCheckbox6"].styledCheckbox',
    deactivateButton: 'li[data-id="646"] a.actionButton',
+   deactivateButtonAdmin: 'a[data-id="646"][class="actionButton"]',
 
    //Deactivate User Account
    bulkDeactivateButton: '[id="deactivateButton"]',
    confirmDeactivation: 'role=button[name="Yes"]',
+   confirmDeactivationAdmin: '#confirmActivation',
    deactivateStatus: '#statusContainer_646',
    bandileAccount: 'span.t-select-btn',
     

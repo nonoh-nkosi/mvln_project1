@@ -3,6 +3,7 @@ import { login } from "../helpers.ts/login.ts";
 import { userManagement } from "../helpers.ts/userManagementLocators.ts";
 import { dashBoardPage } from "../helpers.ts/dashboardpageLocators.ts";
 import { signInPage } from "../helpers.ts/signInPageLocators.ts";
+import { adminLogin } from "../helpers.ts/adminLogin.ts";
 
 test.describe('Deactivating user account', () => {
 
@@ -56,10 +57,7 @@ test('Verify User Account deactivation Process', async ({ page }) => {
 
 test.afterEach(async ({ page }) => {
 
-    await page.goto('http://10.10.10.118/Login%20Pages/sign-in.php');
-    await page.fill('[id="email"]', 'bandile@whakindatec.com'); 
-    await page.fill('[id="password"]', 'DocuNation@135'); 
-    await page.click(signInPage.loginButton);
+    await adminLogin(page);
 
     const menu = await page.locator(userManagement.menu);
     await menu.click();
@@ -75,9 +73,9 @@ test.afterEach(async ({ page }) => {
     const selectButton = page.locator(userManagement.bandileAccount).nth(7);
     await selectButton.click();
 
-    await page.click('a[data-id="646"][class="actionButton"]');
+    await page.click(userManagement.deactivateButtonAdmin);
 
-    await page.click('#confirmActivation');
+    await page.click(userManagement.confirmDeactivationAdmin);
 
     await page.locator(dashBoardPage.signOut).click();
     await page.close(); 
