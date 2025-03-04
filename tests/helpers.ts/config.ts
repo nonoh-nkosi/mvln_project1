@@ -4,6 +4,8 @@ export const config = {
     credentials: {
         email: 'bandilendlela@gmail.com',
         password: 'DocuNation@13525',
+        adminEmail: 'bandile@whakindatec.com',
+        adminPassword: 'DocuNation@135',
     },
     urls: {
         login: 'http://10.10.10.118/Login%20Pages/sign-in.php',
