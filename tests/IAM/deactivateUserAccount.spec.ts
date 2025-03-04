@@ -4,6 +4,8 @@ import { userManagement } from "../helpers.ts/userManagementLocators.ts";
 import { dashBoardPage } from "../helpers.ts/dashboardpageLocators.ts";
 import { signInPage } from "../helpers.ts/signInPageLocators.ts";
 import { adminLogin } from "../helpers.ts/adminLogin.ts";
+import { config } from "../helpers.ts/config.ts";
+import { url } from "inspector";
 
 test.describe('Deactivating user account', () => {
 
@@ -37,7 +39,7 @@ test('Verify User Account deactivation Process', async ({ page }) => {
 
     await confirmButton.click(); 
 
-    const confirmDeactivation = page.locator('p:has-text("Are you sure you want to deactivate this user?")');
+    const confirmDeactivation = page.locator(userManagement.confirmDeactivationMessage);
     await expect(confirmDeactivation).toHaveText('Are you sure you want to deactivate this user?');
 
     const deactivateStatus = page.locator(userManagement.deactivateStatus);
@@ -47,7 +49,7 @@ test('Verify User Account deactivation Process', async ({ page }) => {
 
     await login(page);
 
-    await expect(page).toHaveURL('http://10.10.10.118/Login%20Pages/sign-in.php');
+    await expect(page).toHaveURL(config.urls.login);
 
     //Error message for locked account
     const lockedAccountError = await page.locator(signInPage.lockedAccountError);
